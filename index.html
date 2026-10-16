@@ -1,0 +1,305 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Paraguai Expresso | Área de Membros</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+:root{--navy:#4f46ff;--amber:#a5a0ff;--bg:#000;--panel:#0b0b0f;--line:#1c1c24;--ink:#f4f4f7;--mute:#8a8a99;--ok:#22c55e;--soft:#16163a}
+*{box-sizing:border-box;margin:0}
+body{background:var(--bg);color:var(--ink);font:16px/1.45 "DM Sans",system-ui,sans-serif}
+button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
+a{color:inherit}
+body{display:flex;min-height:100vh}
+aside{width:250px;flex:none;border-right:1px solid var(--line);padding:20px 14px;position:sticky;top:0;height:100vh;overflow:auto}
+.logo{font-weight:800;font-size:18px;padding:0 10px 20px;letter-spacing:.5px}
+.logo span{color:var(--navy)}
+.nav{display:flex;align-items:center;justify-content:space-between;width:100%;padding:11px 12px;border-radius:12px;color:var(--mute);font-weight:600;text-align:left;text-decoration:none}
+.nav:hover{color:var(--ink);background:#111118}
+.nav.on{color:#fff;background:var(--navy)}
+.grp{color:var(--ink);margin-top:8px}
+.nav.ni{padding-left:28px;font-weight:500}
+main{flex:1;min-width:0;max-width:1260px;padding:64px 36px 70px}
+#usd{position:fixed;top:14px;right:20px;z-index:5;background:var(--panel);border:1px solid var(--line);border-radius:999px;padding:7px 14px;font-size:14px;font-weight:700;white-space:nowrap}
+h1{font-size:36px;line-height:1.15;font-weight:700}
+.sub{color:var(--mute);margin-top:6px;font-size:18px}
+.card{background:#fff;border:1px solid var(--line);border-radius:20px;padding:24px}
+.hero{background:var(--navy);color:#fff;border-radius:24px;padding:28px 32px;display:flex;align-items:center;justify-content:space-between;gap:20px;flex-wrap:wrap}
+.hero small{color:var(--amber);font-weight:700;letter-spacing:.8px;font-size:13px;text-transform:uppercase}
+.hero h2{font-size:26px;margin:4px 0}
+.hero p{color:#c4cfe8}
+.btn{display:inline-block;background:var(--amber);color:var(--ink);font-weight:700;padding:15px 26px;border-radius:14px;text-decoration:none;text-align:center}
+.btn.navy{background:var(--navy);color:#fff}
+.btn.ghost{background:#fff;border:2px solid var(--navy);color:var(--navy)}
+.btn.sm{padding:11px 18px}
+.link{color:var(--navy);text-decoration:underline;font-size:14px;font-weight:500}
+.cols{display:grid;grid-template-columns:1fr 300px;gap:24px;margin-top:24px;align-items:start}
+.bars{display:grid;grid-template-columns:repeat(5,1fr);gap:12px;margin:18px 0 24px}
+.bars div{font-size:13px;color:var(--mute)}
+.bars b{display:block;height:8px;border-radius:8px;background:#dde3f0;margin-bottom:8px;overflow:hidden}
+.bars b i{display:block;height:100%;background:var(--ok)}
+.bars .cur{color:var(--navy);font-weight:700}.bars .cur b i{background:var(--navy)}
+.bars .ok{color:var(--ok);font-weight:500}
+.step{display:flex;gap:16px;padding-bottom:22px;position:relative}
+.step:not(:last-child)::before{content:"";position:absolute;left:19px;top:44px;bottom:2px;width:3px;background:#dde3f0}
+.step.ok:not(:last-child)::before{background:var(--ok)}
+.dot{width:40px;height:40px;border-radius:50%;flex:none;display:grid;place-items:center;font-weight:700;background:#eef1f7;color:var(--mute)}
+.ok .dot{background:var(--ok);color:#fff}.cur .dot{background:#fff;border:3px solid var(--navy);color:var(--navy)}
+.step h3{font-size:18px}.cur h3{color:var(--navy)}
+.step p{color:var(--mute);margin:3px 0 8px;font-size:15px}
+.chip{background:var(--soft);color:var(--navy);font-size:12px;font-weight:700;padding:3px 10px;border-radius:999px;margin-left:8px;vertical-align:middle}
+.side .card{padding:20px;margin-bottom:16px}
+.side h4{font-size:16px;margin-bottom:8px}
+.amber{background:#fff0d4;border-color:#fff0d4}.amber h4{color:#5a3b00}.amber p{color:#6b5320;font-size:14px}
+.grid{display:grid;gap:20px}
+.g3{grid-template-columns:repeat(3,1fr)}.g4{grid-template-columns:repeat(4,1fr)}
+.feat{display:flex;gap:10px;font-size:14px;color:var(--mute)}.feat b{display:block;color:var(--ink)}
+.ico{width:46px;height:46px;border-radius:12px;background:var(--soft);display:grid;place-items:center;font-size:21px;flex:none}
+.prod{display:flex;flex-direction:column;gap:10px}
+.prod.own{border:2px solid var(--ok)}
+.price{font-size:28px;font-weight:700}.price small{font-size:13px;color:var(--mute);font-weight:400}
+.tagok{background:#dff3e8;color:var(--ok);font-size:12px;font-weight:700;padding:4px 10px;border-radius:999px;margin-left:auto;align-self:flex-start}
+.stp{border:1px solid var(--line);border-radius:20px;padding:20px;background:#fff}
+.stp.cur{border:2px solid var(--navy)}
+.les{display:flex;align-items:center;gap:10px;width:100%;padding:9px 10px;border-radius:10px;text-align:left;font-size:15px;color:var(--mute);text-decoration:none}
+.les.nx{background:var(--soft);color:var(--navy);font-weight:700}
+.les.ok{color:var(--ink)}
+.mk{width:18px;flex:none;text-align:center;color:var(--ok);font-weight:700}
+.mk.o{width:18px;height:18px;border:2px solid #c8cfdf;border-radius:50%}
+.calc-in{display:grid;grid-template-columns:1fr 360px;gap:24px;margin-top:22px;align-items:start}
+.num{width:30px;height:30px;border-radius:50%;background:var(--navy);color:#fff;display:inline-grid;place-items:center;font-size:14px;font-weight:700;margin-right:10px}
+.opt{display:flex;justify-content:space-between;width:100%;padding:16px 18px;border:1px solid var(--line);border-radius:12px;margin-top:10px;text-align:left}
+.opt small{color:var(--mute)}.opt.on{border:2px solid var(--navy);background:var(--soft);font-weight:700}
+.qty{display:flex;align-items:center;gap:20px;font-size:30px;font-weight:700}
+.qty button{width:52px;height:52px;border:1px solid var(--line);border-radius:12px;font-size:24px;font-weight:400}
+.res{background:var(--navy);color:#fff;border-radius:24px;padding:28px;position:sticky;top:90px}
+.res small{color:var(--amber);font-weight:700;letter-spacing:.8px}
+.res .r{display:flex;justify-content:space-between;align-items:baseline;margin:12px 0;color:#c4cfe8}
+.res .r b{font-size:26px;color:#fff}
+.lucro{background:#fff;color:var(--ink);border-radius:16px;padding:16px 20px;margin:14px 0}
+.lucro b{display:block;font-size:40px;color:var(--ok)}
+.lucro b.neg{color:#c0392b}
+.res .d{display:flex;justify-content:space-between;font-size:14px;color:#c4cfe8;margin:6px 0}
+.pin{border:1px solid var(--line);border-radius:12px;padding:10px 14px;font:inherit;font-size:28px;font-weight:700;width:150px;text-align:right}
+.warn{display:inline-block;background:#fdf0d5;color:#6b4a00;font-size:14px;padding:6px 12px;border-radius:10px;margin-top:12px}
+.player{aspect-ratio:16/9;background:#dde3f0;border-radius:20px;display:grid;place-items:center;color:var(--mute);overflow:hidden;margin:18px 0}
+.player iframe{width:100%;height:100%;border:0}
+.msg{background:var(--soft);border-radius:14px;padding:14px 16px;margin:10px 0;white-space:pre-wrap;font-size:15px}
+.back{color:var(--mute);font-size:14px;display:inline-block;margin-bottom:10px}
+/* tema escuro */
+.card,.stp,.opt:not(.on){background:var(--panel)}
+.btn{background:linear-gradient(90deg,#4f46ff,#7c3aed);color:#fff;box-shadow:0 0 24px #4f46ff55}
+.btn.navy{background:#4f46ff;box-shadow:none}
+.btn.ghost{background:transparent;border-color:#4f46ff;color:#fff;box-shadow:none}
+.hero{background:linear-gradient(120deg,#0d0d3a,#2a0f55 60%,#000);border:1px solid var(--line)}
+.hero p,.res .r,.res .d{color:#b8b8c8}
+.res{background:linear-gradient(160deg,#0d0d3a,#1a0a3a);border:1px solid var(--line)}
+.lucro{color:#101a33}
+.bars b,.step:not(:last-child)::before{background:#22222c}
+.dot{background:#16161d}.cur .dot{background:var(--bg)}
+.mk.o{border-color:#3a3a48}
+.amber,.warn{background:#241d0a;border-color:#241d0a}.amber h4,.warn{color:#f2c35a}.amber p{color:#c9b27a}
+.player{background:var(--panel);border:1px solid var(--line)}
+.pin{background:var(--panel);color:var(--ink);border-color:var(--line)}
+.tagok{background:#0f2a1c}
+.link,.cur h3,.les.nx,.chip,.bars .cur{color:#a5a0ff}
+@media(max-width:900px){.cols,.calc-in{grid-template-columns:1fr}.g3,.g4{grid-template-columns:1fr}.bars{grid-template-columns:repeat(2,1fr)}h1{font-size:28px}.res{position:static}body{flex-direction:column}aside{width:100%;height:auto;position:static;display:flex;gap:6px;overflow-x:auto;padding:10px;border:0}.logo,.grp{display:none}.nav{width:auto;white-space:nowrap}.nav.ni{padding-left:12px}main{padding:20px 16px 60px}#usd{top:auto;bottom:10px;right:10px}}
+</style>
+</head>
+<body>
+<aside id="nav"></aside>
+<div id="usd">💵 Dólar: carregando…</div>
+<main id="app"></main>
+<script>
+// ===== CONFIGURE AQUI =====
+const NAME = "";                                   // nome do aluno (vazio = "Olá!")
+const WHATS = "https://wa.me/5500000000000";       // suporte
+const GRUPO = WHATS;                               // link do grupo de alunos de perfumes
+const CHECKOUT = {};                               // id do produto -> link de pagamento (senão abre o WhatsApp)
+let USD = 5.4;                                     // valor de reserva; é atualizado pela cotação ao vivo
+const FRETEIRO = 80, ENVIO = 40, CALC_DIAS = 30;
+// Um módulo por tipo de produto. p = preço (R$). Em cada aula: min / video (ID do YouTube) / msg (mensagem pronta) são opcionais.
+const MODS = [
+  {id:"perfumes",n:"Perfumes",t:"Como importar perfumes",ico:"🧴",p:147,d:"Bom para começar: investimento menor e muita procura.",steps:[
+    {t:"Conhecer",d:"Entenda o mercado de perfumes e o que vale a pena trazer.",l:[{t:"Por que vender perfumes"},{t:"Os que mais vendem hoje"},{t:"O que trazer e o que evitar"}]},
+    {t:"Comprar",d:"Onde comprar, como pedir e quanto precisa gastar no mínimo.",l:[{t:"Lojas de perfume confiáveis"},{t:"Como falar com a loja",min:14,msg:"Olá! Tenho interesse em comprar perfumes para revenda. Pode me enviar a lista de produtos, os preços e o pedido mínimo?"},{t:"Pedido mínimo e pagamento"}]},
+    {t:"Receber",d:"Como a mercadoria sai do Paraguai e chega na sua casa.",l:[{t:"Da loja até o freteiro"},{t:"Do freteiro até você"},{t:"Nota fiscal e conferência"}]},
+    {t:"Vender",d:"Como conferir o produto, definir o preço e encontrar clientes.",l:[{t:"Original ou falsificado"},{t:"Quanto cobrar"},{t:"Onde e como vender"}]}]},
+  {id:"eletronicos",n:"Eletrônicos",t:"Como importar eletrônicos",ico:"📱",p:97,d:"Celulares, games, fones e informática. Ensina a conferir se o aparelho é original e funciona no Brasil.",steps:[
+    {t:"Conhecer",d:"Entenda o mercado de eletrônicos e o que vale a pena trazer.",l:[{t:"Por que vender eletrônicos"},{t:"Os que mais saem hoje"},{t:"Cota, Anatel e o que evitar"}]},
+    {t:"Comprar",d:"Onde comprar, como pedir e quanto precisa gastar no mínimo.",l:[{t:"Lojas de eletrônicos confiáveis"},{t:"Como falar com a loja",msg:"Olá! Tenho interesse em comprar eletrônicos para revenda. Pode me enviar a lista de produtos, os preços e o pedido mínimo?"},{t:"Pedido mínimo e pagamento"}]},
+    {t:"Receber",d:"Como a mercadoria sai do Paraguai e chega na sua casa.",l:[{t:"Da loja até o freteiro"},{t:"Do freteiro até você"},{t:"Nota fiscal, garantia e conferência"}]},
+    {t:"Vender",d:"Como testar o aparelho, definir o preço e encontrar clientes.",l:[{t:"Original ou falsificado"},{t:"Quanto cobrar"},{t:"Onde e como vender"}]}]},
+  {id:"farma",n:"Farma",t:"Como importar produtos farma",ico:"💊",p:147,d:"Produtos de saúde e farmácia. Começa pelas regras da Anvisa: o que pode e o que não pode.",steps:[
+    {t:"Conhecer",d:"Entenda o que a lei permite trazer e o que é proibido.",l:[{t:"O que pode ser importado"},{t:"Regras da Anvisa e limites"},{t:"O que nunca trazer"}]},
+    {t:"Comprar",d:"Onde comprar, como pedir e quanto precisa gastar no mínimo.",l:[{t:"Lojas e marcas confiáveis"},{t:"Como falar com a loja",msg:"Olá! Tenho interesse em comprar produtos de farmácia para revenda. Pode me enviar a lista de produtos, os preços e o pedido mínimo?"},{t:"Pedido mínimo e pagamento"}]},
+    {t:"Receber",d:"Como a mercadoria sai do Paraguai e chega na sua casa.",l:[{t:"Da loja até o freteiro"},{t:"Do freteiro até você"},{t:"Conferência, lote e validade"}]},
+    {t:"Vender",d:"Como conferir o produto, definir o preço e vender dentro das regras.",l:[{t:"Original ou falsificado"},{t:"Quanto cobrar"},{t:"Regras para vender com segurança"}]}]}
+];
+const TUDO = 353;
+const MSGS = [
+  {t:"Primeiro contato com a loja",m:"Olá! Tenho interesse em comprar [PRODUTO] para revenda. Pode me enviar a lista de produtos, os preços e o pedido mínimo?"},
+  {t:"Combinar o envio com o freteiro",m:"Olá! Vou comprar na loja [NOME] e preciso levar a mercadoria até o Brasil. Qual o valor do frete e o prazo?"}
+];
+const CALC = [
+  {n:"Perfume árabe 100ml",usd:25,venda:250},
+  {n:"Perfume importado 100ml",usd:60,venda:480},
+  {n:"Perfume importado 50ml",usd:40,venda:300}
+];
+// ===== FIM =====
+const L = MODS.flatMap(m=>m.steps.flatMap((s,si)=>s.l.map(l=>({...l,si,m:m.id}))));
+let S = {done:{},own:{perfumes:1,eletronicos:1,farma:1},flag:{},start:Date.now()}; // own = módulos liberados
+try{S = {...S,...JSON.parse(localStorage.pe3)}}catch{}
+const save=()=>{try{localStorage.pe3=JSON.stringify(S)}catch{}};
+save();
+const brl=n=>n.toLocaleString("pt-BR",{style:"currency",currency:"BRL",maximumFractionDigits:0});
+const idxs=id=>L.flatMap((l,i)=>l.m===id?[i]:[]);       // posições das aulas de um módulo
+const nDone=id=>idxs(id).filter(i=>S.done[i]).length;
+const nextL=id=>{const x=idxs(id);return x.find(i=>!S.done[i])??x[0]};
+const activeMod=()=>(MODS.find(m=>S.own[m.id]&&nDone(m.id)<idxs(m.id).length)||MODS.find(m=>S.own[m.id])||MODS[0]).id;
+const buy=(id,n)=>CHECKOUT[id]||`${WHATS}?text=${encodeURIComponent("Quero liberar "+n)}`;
+const diasCalc=()=>Math.ceil(CALC_DIAS-(Date.now()-S.start)/864e5);
+const flag=k=>{S.flag[k]=1;save();render()};
+const markL=i=>{S.done[i]=!S.done[i];save();render()};
+const copy=(t,b)=>navigator.clipboard.writeText(t).then(()=>b.textContent="Copiado ✓");
+let C={p:1,q:10,price:CALC[1].venda};
+
+// item = [nome, link, quando fica ativo: lista de rotas | nome da página "Em breve"]
+const soon=n=>[n,"#/breve/"+encodeURIComponent(n),n];
+const MENU=[
+  ["Início",[["Minha trilha","#/trilha",["trilha"]],["Comunidade",GRUPO,[]],["Guia & Info","#/como",["como"]],soon("Redirecionadora")]],
+  ["Módulos",MODS.map(m=>[m.t,"#/produto/"+m.id,(r,a)=>r==="produto"&&a===m.id||r==="aula"&&L[a]?.m===m.id])],
+  ["Produtos",[["Todos os produtos","#/produtos",["produtos"]],soon("Selecionados"),soon("Fábricas"),soon("Taobao")]],
+  ["Ferramentas",[["Calculadora de lucro","#/calc",["calc"]],["Mensagens prontas","#/mensagens",["mensagens"]],soon("O Minerador"),soon("Rastreio"),soon("Baixar Imagens"),soon("Paraguai AI")]],
+  soon("Recompensas"),soon("Planos"),["Suporte",WHATS,[]],soon("Indique e Ganhe")
+];
+const G={};
+function render(){
+  const [r,a]=(location.hash.slice(2)||"trilha").split("/");
+  const item=([n,h,t],c="")=>`<a class="nav ${c} ${(typeof t==="function"?t(r,a):Array.isArray(t)?t.includes(r):r==="breve"&&decodeURIComponent(a||"")===t)?"on":""}" href="${h}" ${h[0]==="#"?"":'target="_blank" rel="noopener"'}>${n}</a>`;
+  nav.innerHTML=`<div class="logo">PARAGUAI <span>EXPRESSO</span></div>`+MENU.map(m=>Array.isArray(m[1])
+    ?`<button class="nav grp" onclick="G['${m[0]}']=G['${m[0]}']===false;render()">${m[0]}<span>${G[m[0]]===false?"▸":"▾"}</span></button>`+(G[m[0]]===false?"":m[1].map(x=>item(x,"ni")).join(""))
+    :item(m)).join("");
+  app.innerHTML=({trilha,produtos,produto,aula,calc,como,mensagens,breve}[r]||trilha)(a);
+  if(document.getElementById("res"))res();
+  window.scrollTo(0,0);
+}
+window.onhashchange=render;
+
+function trilha(){
+  const am=activeMod(), M=MODS.find(m=>m.id===am), nd=nDone(am), tot=idxs(am).length, n=nextL(am);
+  const ok=[!!S.flag.s1,Object.keys(S.own).length>0,nd===tot,!!S.flag.s4,!!S.flag.s5];
+  const cur=ok.indexOf(false), k=cur<0?5:cur;
+  const names=["Aprender o básico","Escolher o produto","Estudar o produto","Calcular e comprar","Receber e vender"];
+  const hero=[
+    ["Aprenda como funciona comprar no Paraguai","Leva poucos minutos","#/como","Começar"],
+    ["Escolha o produto que quer vender","Você paga uma vez e libera para sempre","#/produtos","Ver produtos"],
+    [`Assista à aula "${L[n].t}"`,`${M.n} · aula ${n-idxs(am)[0]+1} de ${tot}${L[n].min?` · ${L[n].min} minutos`:""}`,`#/aula/${n}`,"▶ Continuar"],
+    ["Calcule seu lucro e faça o primeiro pedido","Use a calculadora e o roteiro pronto","#/calc","Abrir calculadora"],
+    ["Receba a mercadoria e comece a vender","Confira tudo quando chegar",`#/produto/${am}`,"Rever aulas"],
+    ["Trilha concluída. Parabéns!","Continue vendendo e conheça outros produtos","#/produtos","Ver produtos"]
+  ][k];
+  const desc=[
+    ok[0]?"Concluído. Você já sabe como funciona comprar no Paraguai.":"Entenda como funciona comprar no Paraguai.",
+    ok[1]?"Concluído. Você escolheu <b>${M.n}</b>.":"Escolha o produto que quer vender.",
+    `Módulo "${M.t}": aprenda o que vender, onde comprar e como a mercadoria chega. ${nd} de ${tot} aulas feitas.`,
+    "Use a calculadora para ver seu lucro e faça o primeiro pedido com o roteiro pronto.",
+    "Confira a mercadoria quando chegar e comece a vender aqui no Brasil."];
+  const act=[
+    `<a class="link" href="#/como">Rever aulas</a>`,
+    `<a class="link" href="#/produtos">${ok[1]?"Ver outros produtos":"Ver produtos"}</a>`,
+    k===2?`<a class="btn navy sm" href="#/aula/${n}">Continuar estudando</a>`:`<a class="link" href="#/produto/${am}">Ver aulas</a>`,
+    k===3?`<a class="btn navy sm" href="#/calc">Abrir calculadora</a> <button class="link" onclick="flag('s4')">Marcar como feito</button>`:"",
+    k===4?`<button class="btn navy sm" onclick="flag('s5')">Marcar como feito</button>`:""];
+  const dias=diasCalc();
+  return `<p class="sub" style="font-size:15px">Olá${NAME?", "+NAME:""}!</p>
+  <h1>${k<5?`Você está no passo ${k+1} de 5`:"Trilha concluída"}</h1>
+  <div class="bars">${names.map((t,i)=>`<div class="${ok[i]?"ok":i===k?"cur":""}"><b><i style="width:${ok[i]?100:i===k?(i===2?100*nd/tot||8:12):0}%"></i></b>${i+1}. ${t}</div>`).join("")}</div>
+  <div class="hero"><div><small>O que fazer agora</small><h2>${hero[0]}</h2><p>${hero[1]}</p></div><a class="btn" href="${hero[2]}">${hero[3]}</a></div>
+  <div class="cols"><div class="card"><h2 style="font-size:22px;margin-bottom:18px">Sua trilha completa</h2>
+  ${names.map((t,i)=>`<div class="step ${ok[i]?"ok":i===k?"cur":""}"><div class="dot">${ok[i]?"✓":i+1}</div><div><h3>Passo ${i+1} · ${t}${i===k?'<span class="chip">Você está aqui</span>':""}</h3><p>${desc[i]}</p>${act[i]}</div></div>`).join("")}</div>
+  <div class="side"><div class="card"><h4>Ficou com dúvida?</h4><p style="color:var(--mute);font-size:15px;margin-bottom:12px">Fale com uma pessoa da equipe. Respondemos em horário comercial.</p><a class="btn ghost sm" style="display:block" href="${WHATS}" target="_blank" rel="noopener">💬 Falar com o suporte</a></div>
+  <div class="card"><h4>Seus produtos</h4>${MODS.filter(p=>S.own[p.id]).map(p=>`<div style="display:flex;justify-content:space-between;font-size:15px;margin:6px 0">${p.n}<b style="color:var(--ok);font-size:13px">Liberado</b></div>`).join("")}<a class="link" href="#/produtos">Quero vender outro produto</a></div>
+  <div class="card amber"><h4>Calculadora: ${dias>0?dias+" dias restantes":"período encerrado"}</h4><p>Depois, você pode continuar usando por R$ 47 por mês. Se não quiser, as aulas e lojas continuam suas.</p></div></div></div>`;
+}
+
+function produtos(){
+  return `<h1>Escolha o que você quer vender</h1><p class="sub">Você paga <b>uma vez</b> por produto e ele fica liberado para sempre.</p>
+  <div class="card" style="margin:24px 0"><b>Todo produto vem com estas 4 coisas</b><div class="grid g4" style="margin-top:14px">
+  ${[["▶","Aulas","O passo a passo, do pedido à venda"],["🏬","Lojas confiáveis","No Paraguai e no Brasil, com contato"],["📈","Preços e lucro",`Calculadora liberada por ${CALC_DIAS} dias`],["👥","Grupo de alunos","Só de quem vende o mesmo produto"]].map(([i,t,d])=>`<div class="feat"><div class="ico" style="width:38px;height:38px;font-size:16px">${i}</div><div><b>${t}</b>${d}</div></div>`).join("")}</div></div>
+  <div class="grid g3">${MODS.map(p=>{const own=S.own[p.id];return `<div class="card prod ${own?"own":""}"><div style="display:flex"><div class="ico">${p.ico}</div>${own?'<span class="tagok">Você já tem</span>':""}</div><h3 style="font-size:22px">${p.t}</h3><p style="color:var(--mute);font-size:15px;flex:1">${p.d}</p>
+  ${own?"":`<div class="price">R$ ${p.p} <small>pagamento único</small></div>`}
+  ${own?`<a class="btn navy" href="#/produto/${p.id}">Abrir módulo</a>`:`<a class="btn" href="${buy(p.id,p.n)}" target="_blank" rel="noopener">Liberar ${p.n}</a>`}</div>`}).join("")}</div>
+  <div class="hero" style="margin-top:28px"><div><h2>Quer liberar tudo de uma vez?</h2><p>Todos os produtos de hoje e os que forem lançados, mais a calculadora por 12 meses. O que você já pagou é descontado.</p></div>
+  <div style="text-align:center"><div style="font-size:38px;font-weight:700">R$ ${TUDO} <small style="font-size:14px;font-weight:400">para você</small></div><a class="btn" href="${buy("tudo","tudo")}" target="_blank" rel="noopener">Liberar tudo</a></div></div>`;
+}
+
+function produto(id){
+  const p=MODS.find(x=>x.id===id);
+  if(!p||!S.own[id]) return `<a class="back" href="#/produtos">Voltar para Produtos</a><h1>${p?p.t:"Módulo"}</h1><p class="sub">Este módulo ainda não está liberado para você.</p>`;
+  const ix=idxs(id), nd=nDone(id), n=nextL(id), done=nd===ix.length; let idx=ix[0];
+  const cur=L[n].si;
+  return `<a class="back" href="#/produtos">Voltar para Produtos</a>
+  <div style="display:flex;justify-content:space-between;align-items:flex-end;gap:16px;flex-wrap:wrap"><div><h1>${p.t}</h1><p class="sub">Siga as ${p.steps.length} etapas na ordem. Cada etapa tem 3 aulas curtas.</p></div>
+  <div class="card" style="padding:12px 18px;border-radius:14px;color:var(--mute)">Você fez <b style="font-size:22px;color:var(--ink);margin:0 6px">${nd} de ${ix.length}</b> aulas</div></div>
+  <div class="hero" style="margin:22px 0"><div><small>${done?"Tudo feito":"Próxima aula · Etapa "+(cur+1)}</small><h2>${L[n].t}</h2><p>${L[n].min?L[n].min+" minutos":"Aula curta"}${L[n].msg?" · com mensagem pronta para copiar":""}</p></div><a class="btn" href="#/aula/${n}">▶ ${done?"Rever aulas":"Assistir agora"}</a></div>
+  <div class="grid" style="grid-template-columns:repeat(auto-fit,minmax(240px,1fr))">${p.steps.map((s,si)=>{const full=s.l.every((_,j)=>S.done[idx+j]);const st=`<div class="stp ${si===cur&&!done?"cur":""}"><div style="display:flex;gap:10px;align-items:center"><div class="dot" style="width:36px;height:36px;${full?"background:var(--ok);color:#fff":si===cur&&!done?"background:var(--navy);color:#fff":""}">${full?"✓":si+1}</div><div><small style="color:var(--mute);font-size:12px">Etapa ${si+1}${si===cur&&!done?" · você está aqui":""}</small><h3>${s.t}</h3></div></div><p style="color:var(--mute);font-size:14px;margin:12px 0 8px">${s.d}</p>
+  ${s.l.map((l,j)=>{const i=idx+j;return `<a class="les ${S.done[i]?"ok":""} ${i===n&&!done?"nx":""}" href="#/aula/${i}">${S.done[i]?'<span class="mk">✓</span>':i===n&&!done?'<span class="mk" style="color:var(--navy)">▶</span>':'<span class="mk o"></span>'}${l.t}</a>`}).join("")}</div>`;idx+=s.l.length;return st}).join("")}</div>
+  <div class="grid g3" style="margin-top:24px">${[["💬","Mensagens prontas","Copie e envie para a loja e o freteiro","#/mensagens"],["🧮","Calcular meu lucro","Veja antes de comprar quanto vai ganhar","#/calc"],["👥","Grupo de "+p.n.toLowerCase(),"Tire dúvidas com outros alunos",GRUPO]].map(([i,t,d,h])=>`<a class="card" style="display:flex;gap:14px;align-items:center;text-decoration:none;padding:18px" href="${h}" ${h[0]!=="#"?'target="_blank" rel="noopener"':""}><div class="ico">${i}</div><div><b>${t}</b><div style="color:var(--mute);font-size:14px">${d}</div></div></a>`).join("")}</div>`;
+}
+
+function aula(i){
+  i=+i; const l=L[i]; if(!l) return produto(MODS[0].id);
+  const M=MODS.find(m=>m.id===l.m), nx=L[i+1]?.m===l.m?L[i+1]:null;
+  return `<a class="back" href="#/produto/${l.m}">Voltar para ${M.t}</a><small style="display:block;color:var(--mute)">Etapa ${l.si+1} · ${M.steps[l.si].t}</small><h1>${l.t}</h1>
+  <div class="player">${l.video?`<iframe src="https://www.youtube.com/embed/${encodeURIComponent(l.video)}" allowfullscreen></iframe>`:"Vídeo em breve"}</div>
+  ${l.msg?`<div class="card"><b>Mensagem pronta</b><div class="msg">${l.msg}</div><button class="btn navy sm" onclick="copy(L[${i}].msg,this)">Copiar mensagem</button></div>`:""}
+  <div style="display:flex;gap:12px;margin-top:20px;flex-wrap:wrap"><button class="btn ${S.done[i]?"ghost":""}" onclick="markL(${i})">${S.done[i]?"✓ Concluída (desfazer)":"Marcar como concluída"}</button>${nx?`<a class="btn navy" href="#/aula/${i+1}">Próxima aula →</a>`:""}</div>`;
+}
+
+function breve(n){return `<h1>${decodeURIComponent(n||"").replace(/[<>&"]/g,"")}</h1><div class="card" style="margin-top:20px;color:var(--mute)">Em breve.</div>`}
+
+function mensagens(){
+  return `<a class="back" href="#/trilha">Voltar para Minha trilha</a><h1>Mensagens prontas</h1><p class="sub">Copie, troque o que estiver entre [colchetes] e envie.</p>`+
+  MSGS.map((x,i)=>`<div class="card" style="margin-top:16px"><b>${x.t}</b><div class="msg">${x.m}</div><button class="btn navy sm" onclick="copy(MSGS[${i}].m,this)">Copiar mensagem</button></div>`).join("");
+}
+
+function calc(){
+  const dias=diasCalc();
+  const head=`<h1>Calcule seu lucro em 3 passos</h1><p class="sub">Antes de comprar, veja quanto vai gastar e quanto pode ganhar.</p><span class="warn">Valores de exemplo. Os preços reais mudam com o dólar e com a loja.</span>`;
+  if(dias<=0) return head+`<div class="card amber" style="margin-top:24px"><h4>O período grátis da calculadora acabou</h4><p style="margin:6px 0 12px">Continue usando por R$ 47 por mês.</p><a class="btn sm" href="${buy("calc","a calculadora")}" target="_blank" rel="noopener">Renovar calculadora</a></div>`;
+  return head+`<div class="calc-in"><div>
+  <div class="card"><h3 style="font-size:20px"><span class="num">1</span>Escolha o produto</h3>${CALC.map((c,i)=>`<button class="opt ${C.p===i?"on":""}" onclick="C.p=${i};C.price=CALC[${i}].venda;render()">${c.n}<small>US$ ${c.usd} no Paraguai</small></button>`).join("")}</div>
+  <div class="card" style="margin-top:18px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px"><h3 style="font-size:20px"><span class="num">2</span>Quantas unidades?</h3><div class="qty"><button onclick="C.q=Math.max(1,C.q-1);render()">−</button>${C.q}<button onclick="C.q++;render()">+</button></div></div>
+  <div class="card" style="margin-top:18px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px"><h3 style="font-size:20px"><span class="num">3</span>Por quanto vender cada um?</h3><div style="text-align:right"><input class="pin" type="number" min="0" value="${C.price}" oninput="C.price=+this.value||0;res()"><div style="color:var(--mute);font-size:14px;margin-top:4px">Sugerido: ${brl(CALC[C.p].venda)}</div></div></div></div>
+  <div class="res" id="res"></div></div>`;
+}
+function res(){
+  const prod=Math.round(C.q*CALC[C.p].usd*USD), pago=prod+FRETEIRO+ENVIO, venda=C.q*C.price, lucro=venda-pago;
+  document.getElementById("res").innerHTML=`<small>SEU RESULTADO</small><div class="r">Você paga<b>${brl(pago)}</b></div><div class="r">Você vende por<b>${brl(venda)}</b></div>
+  <div class="lucro">Seu lucro<b class="${lucro<0?"neg":""}">${brl(lucro)}</b></div>
+  <p style="color:#c4cfe8;font-size:15px">Comprando <b style="color:#fff">${C.q} unidades</b>, você investe ${brl(pago)} e ${lucro<0?"teria prejuízo de "+brl(-lucro):"pode ganhar "+brl(lucro)+" de lucro"}.</p><hr style="border:0;border-top:1px solid #ffffff22;margin:16px 0">
+  <b style="font-size:14px">O que entra no que você paga</b><div class="d"><span>Produtos no Paraguai (já em reais)</span><span>${brl(prod)}</span></div><div class="d"><span>Freteiro (traz até o Brasil)</span><span>${brl(FRETEIRO)}</span></div><div class="d"><span>Envio até a sua casa</span><span>${brl(ENVIO)}</span></div>
+  <a class="btn" style="display:block;margin-top:16px" href="#/produto/${activeMod()}" onclick="S.flag.s4=1;save()">Ver onde comprar</a>`;
+}
+
+function como(){
+  const pts=[["1","Escolha um produto","Você paga uma vez e libera as aulas para sempre."],["2","Estude na ordem","Cada etapa tem aulas curtas e mensagens prontas para copiar."],["3","Calcule o lucro","Veja quanto vai gastar e ganhar antes de comprar."],["4","Compre, receba e venda","Fale com a loja, receba pelo freteiro e venda no Brasil."]];
+  return `<h1>Como funciona</h1><p class="sub">Do primeiro passo à primeira venda.</p><div class="grid" style="margin-top:24px">${pts.map(([n,t,d])=>`<div class="card" style="display:flex;gap:16px;align-items:center"><div class="dot" style="background:var(--navy);color:#fff">${n}</div><div><b>${t}</b><div style="color:var(--mute)">${d}</div></div></div>`).join("")}</div>
+  <div style="margin-top:24px"><button class="btn navy" onclick="flag('s1');location.hash='#/trilha'">Entendi, vamos lá</button></div>`;
+}
+render();
+
+async function cotacao(){
+  const f=n=>n.toLocaleString("pt-BR",{style:"currency",currency:"BRL"});
+  try{
+    USD=+(await (await fetch("https://economia.awesomeapi.com.br/last/USD-BRL")).json()).USDBRL.bid;
+    usd.textContent=`💵 US$ 1 = ${f(USD)} · ao vivo`;
+    if(document.getElementById("res")) res();
+  }catch{usd.textContent=`💵 US$ 1 = ${f(USD)} · estimado`}
+}
+cotacao(); setInterval(cotacao,60000);
+</script>
+</body>
+</html>

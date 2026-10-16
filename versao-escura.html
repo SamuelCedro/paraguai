@@ -1,0 +1,102 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Paraguai Expresso | Área de Membros</title>
+<style>
+:root{--bg:#000;--panel:#0b0b0f;--line:#1c1c24;--text:#f4f4f7;--mute:#8a8a99;--brand:#4f46ff;--brand2:#7c3aed;--ok:#22c55e}
+*{box-sizing:border-box;margin:0}
+body{background:var(--bg);color:var(--text);font:15px/1.5 Inter,system-ui,sans-serif;display:flex;min-height:100vh}
+button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
+a{color:inherit;text-decoration:none}
+aside{width:250px;flex:none;border-right:1px solid var(--line);padding:20px 14px;position:sticky;top:0;height:100vh;overflow:auto}
+.logo{font-weight:800;font-size:18px;padding:0 10px 20px;letter-spacing:.5px}
+.logo span{color:var(--brand)}
+.nav{display:flex;align-items:center;gap:10px;width:100%;padding:11px 12px;border-radius:12px;color:var(--mute);font-weight:600;text-align:left}
+.nav:hover{color:var(--text);background:#111118}
+.grp{color:var(--text);justify-content:space-between;margin-top:8px}
+.sub{padding-left:28px;font-weight:500}
+.nav.on{color:#fff;background:var(--brand)}
+main{flex:1;min-width:0;padding:28px 32px 60px}
+.hero{border-radius:22px;padding:48px 36px;background:linear-gradient(120deg,#0d0d3a,#2a0f55 60%,#000);border:1px solid var(--line)}
+.hero h1{font-size:34px;line-height:1.15;max-width:520px}
+.hero p{color:#b8b8c8;margin:10px 0 22px;max-width:480px}
+.btn{display:inline-block;background:linear-gradient(90deg,var(--brand),var(--brand2));padding:13px 26px;border-radius:14px;font-weight:700;box-shadow:0 0 24px #4f46ff55}
+h2{font-size:22px;margin:34px 0 14px;display:flex;justify-content:space-between;align-items:baseline}
+h2 small{font-size:13px;color:var(--mute);font-weight:600}
+.row{display:flex;gap:16px;overflow-x:auto;padding-bottom:10px}
+.card{flex:none;width:180px;height:320px;border-radius:18px;border:1px solid var(--line);position:relative;overflow:hidden;text-align:left;display:flex;flex-direction:column;justify-content:flex-end;padding:14px;transition:transform .15s}
+.card:hover{transform:translateY(-4px)}
+.card .n{position:absolute;top:30px;left:0;right:0;text-align:center;font-size:92px;font-weight:900;color:#fff;opacity:.9}
+.tag{align-self:center;background:var(--brand);font-size:9px;font-weight:800;padding:2px 8px;border-radius:5px;margin-bottom:6px}
+.card b{text-align:center;text-transform:uppercase;font-size:15px}
+.bar{height:4px;background:#ffffff22;border-radius:4px;margin-top:8px}
+.bar i{display:block;height:100%;background:var(--ok);border-radius:4px}
+.back{color:var(--mute);margin-bottom:14px;font-weight:600}
+.player{aspect-ratio:16/9;background:var(--panel);border:1px solid var(--line);border-radius:18px;display:grid;place-items:center;color:var(--mute);overflow:hidden}
+.player iframe{width:100%;height:100%;border:0}
+.lesson{display:flex;align-items:center;gap:12px;width:100%;padding:14px 16px;margin-top:8px;background:var(--panel);border:1px solid var(--line);border-radius:14px;text-align:left}
+.lesson.on{border-color:var(--brand)}
+.dot{width:20px;height:20px;border-radius:50%;border:2px solid var(--mute);flex:none;display:grid;place-items:center;font-size:12px}
+.done .dot{background:var(--ok);border-color:var(--ok);color:#000}
+.box{background:var(--panel);border:1px solid var(--line);border-radius:16px;padding:20px;margin-top:12px}
+@media(max-width:760px){body{flex-direction:column}aside{width:100%;height:auto;position:static;display:flex;gap:6px;overflow-x:auto;padding:12px;border:0}.logo{display:none}.nav{width:auto;white-space:nowrap}main{padding:18px 16px 50px}.hero{padding:30px 20px}.hero h1{font-size:26px}}
+</style>
+</head>
+<body>
+<aside id="side"></aside>
+<main id="app"></main>
+<script>
+// Edite aqui: módulos, aulas e links. video = ID do YouTube (vazio mostra "Em breve").
+const WHATS = "https://wa.me/5500000000000";
+const MODULES = [
+  {t:"Primeiros Passos", free:true,  c:["#1a3a5c","#05060a"], lessons:[{t:"Boas-vindas",video:""},{t:"Como funciona o Paraguai Expresso",video:""}]},
+  {t:"Cadastro",         free:true,  c:["#2b5aa8","#05060a"], lessons:[{t:"Criando sua conta",video:""},{t:"Endereço de envio",video:""}]},
+  {t:"Compras",          free:false, c:["#0e5c4a","#05060a"], lessons:[{t:"O que comprar",video:""},{t:"Como pagar",video:""},{t:"Evitando golpes",video:""}]},
+  {t:"Cruzando a Ponte", free:false, c:["#6a2a8f","#05060a"], lessons:[{t:"Regras da fronteira",video:""},{t:"Cota e limites",video:""}]},
+  {t:"Envios",           free:false, c:["#a8552b","#05060a"], lessons:[{t:"Despacho para o Brasil",video:""},{t:"Rastreio",video:""}]},
+  {t:"Revenda",          free:false, c:["#a82b4f","#05060a"], lessons:[{t:"Precificação",video:""},{t:"Primeiras vendas",video:""}]}
+];
+// Menu: [id, nome] ou [nome, [subitens]] para grupo. Páginas sem conteúdo mostram "Em breve".
+const MENU = [
+  ["Início",[["aulas","Aulas"],["comunidade","Comunidade"],["guia","Guia & Info"],["redirecionadora","Redirecionadora"]]],
+  ["Produtos",[["selecionados","Selecionados"],["fabricas","Fábricas"],["taobao","Taobao"]]],
+  ["Ferramentas",[["minerador","O Minerador"],["rastreio","Rastreio"],["imagens","Baixar Imagens"],["ai","Paraguai AI"]]],
+  ["recompensas","Recompensas"],["planos","Planos"],["suporte","Suporte"],["calculadora","Calculadora"],["indique","Indique e Ganhe"]
+];
+const PAGES = {guia:"Coloque aqui o passo a passo, FAQ e links úteis do Paraguai Expresso."};
+const NAMES = {}; MENU.forEach(x=>Array.isArray(x[1])?x[1].forEach(([k,n])=>NAMES[k]=n):NAMES[x[0]]=x[1]);
+const open = {};
+
+let done = {}; try{done = JSON.parse(localStorage.pe_done||"{}")}catch{}
+let view = {p:"aulas", m:null, l:0};
+const key=(m,l)=>m+"-"+l, esc=s=>s.replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+const pct=m=>Math.round(100*MODULES[m].lessons.filter((_,l)=>done[key(m,l)]).length/MODULES[m].lessons.length);
+const go=(p,m=null,l=0)=>{view={p,m,l};render()};
+const toggle=(m,l)=>{done[key(m,l)]=!done[key(m,l)];try{localStorage.pe_done=JSON.stringify(done)}catch{}render()};
+
+function render(){
+  const item=(k,n,c="")=>k==="suporte"?`<a class="nav ${c}" href="${WHATS}" target="_blank" rel="noopener">${n}</a>`:`<button class="nav ${c} ${view.p===k?"on":""}" onclick="go('${k}')">${n}</button>`;
+  side.innerHTML='<div class="logo">PARAGUAI <span>EXPRESSO</span></div>'+MENU.map(([a,b])=>Array.isArray(b)
+    ?`<button class="nav grp" onclick="open['${a}']=open['${a}']===false;render()">${a}<span>${open[a]===false?"▸":"▾"}</span></button>`+(open[a]===false?"":b.map(([k,n])=>item(k,n,"sub")).join(""))
+    :item(a,b)).join("");
+  if(view.p!=="aulas"){app.innerHTML=`<h2>${NAMES[view.p]}</h2><div class="box">${PAGES[view.p]||"Em breve."}</div>`;return}
+  view.m===null?home():lesson();
+}
+function home(){
+  app.innerHTML=`<div class="hero"><h1>Traga o Paraguai para o seu negócio</h1><p>Do primeiro cadastro à primeira venda: tudo que você precisa para importar com segurança.</p><button class="btn" onclick="go('aulas',0,0)">Assistir Agora</button></div>
+  <h2>Principais <small>${MODULES.length} Módulos</small></h2><div class="row">`+
+  MODULES.map((m,i)=>`<button class="card" style="background:linear-gradient(160deg,${m.c[0]},${m.c[1]})" onclick="go('aulas',${i},0)"><span class="n">${i+1}</span>${m.free?'<span class="tag">AULA GRÁTIS</span>':""}<b>${esc(m.t)}</b><div class="bar"><i style="width:${pct(i)}%"></i></div></button>`).join("")+`</div>`;
+}
+function lesson(){
+  const m=MODULES[view.m], l=m.lessons[view.l];
+  app.innerHTML=`<button class="back" onclick="go('aulas')">← Voltar</button><h2>${esc(m.t)} <small>${pct(view.m)}% concluído</small></h2>
+  <div class="player">${l.video?`<iframe src="https://www.youtube.com/embed/${encodeURIComponent(l.video)}" allowfullscreen></iframe>`:"Vídeo em breve"}</div>
+  <h2 style="font-size:18px">${esc(l.t)}</h2>`+
+  m.lessons.map((x,i)=>`<div class="lesson ${i===view.l?"on":""} ${done[key(view.m,i)]?"done":""}"><button class="dot" onclick="toggle(${view.m},${i})" aria-label="Concluir">${done[key(view.m,i)]?"✓":""}</button><button style="flex:1;text-align:left" onclick="go('aulas',${view.m},${i})">${i+1}. ${esc(x.t)}</button></div>`).join("");
+}
+render();
+</script>
+</body>
+</html>
