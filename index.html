@@ -20,7 +20,6 @@ aside{width:250px;flex:none;border-right:1px solid var(--line);padding:20px 14px
 .nav.on{color:#fff;background:var(--navy)}
 .grp{color:var(--ink);margin-top:8px}
 .nav.ni{padding-left:28px;font-weight:500}
-.logout{margin-top:18px;border-top:1px solid var(--line);border-radius:0;padding-top:18px}
 main{flex:1;min-width:0;max-width:1260px;padding:64px 36px 70px}
 #usd{position:fixed;top:14px;right:20px;z-index:5;background:var(--panel);border:1px solid var(--line);border-radius:999px;padding:7px 14px;font-size:14px;font-weight:700;white-space:nowrap}
 h1{font-size:36px;line-height:1.15;font-weight:700}
@@ -210,15 +209,12 @@ function render(){
   const item=([n,h,t],c="")=>`<a class="nav ${c} ${(typeof t==="function"?t(r,a):Array.isArray(t)?t.includes(r):r==="breve"&&decodeURIComponent(a||"")===t)?"on":""}" href="${h}" ${h[0]==="#"?"":'target="_blank" rel="noopener"'}>${n}</a>`;
   nav.innerHTML=`<div class="logo">PARAGUAI <span>EXPRESSO</span></div>`+MENU.map(m=>Array.isArray(m[1])
     ?`<button class="nav grp" onclick="G['${m[0]}']=G['${m[0]}']===false;render()">${m[0]}<span>${G[m[0]]===false?"▸":"▾"}</span></button>`+(G[m[0]]===false?"":m[1].map(x=>item(x,"ni")).join(""))
-    :item(m)).join("")+`<button class="nav logout" onclick="logout()">Sair da conta</button>`;
+    :item(m)).join("");
   app.innerHTML=({trilha,produtos,produto,aula,calc,como,mensagens,breve}[r]||trilha)(a);
   if(document.getElementById("res"))res();
   window.scrollTo(0,0);
 }
 window.onhashchange=render;
-async function logout(){
-  try{await fetch('/api/session',{method:'DELETE',credentials:'same-origin'})}finally{location.replace('/')}
-}
 
 function trilha(){
   const am=activeMod(), M=MODS.find(m=>m.id===am), nd=nDone(am), tot=idxs(am).length, n=nextL(am);
