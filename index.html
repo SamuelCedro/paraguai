@@ -13,13 +13,38 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
 a{color:inherit}
 body{display:flex;min-height:100vh}
 aside{width:250px;flex:none;border-right:1px solid var(--line);padding:20px 14px;position:sticky;top:0;height:100vh;overflow:auto}
-.logo{font-weight:800;font-size:18px;padding:0 10px 20px;letter-spacing:.5px}
+.ic{fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;flex:none}
+.brandrow{display:flex;align-items:center;gap:10px;padding:0 6px 22px}
+.logo{font-weight:800;font-size:16px;letter-spacing:.5px;margin-right:auto;line-height:1.1}
 .logo span{color:var(--amber)}
-.nav{display:flex;align-items:center;justify-content:space-between;width:100%;padding:11px 12px;border-radius:12px;color:var(--mute);font-weight:600;text-align:left;text-decoration:none}
-.nav:hover{color:var(--ink);background:#111118}
-.nav.on{color:#fff;background:var(--navy)}
-.grp{color:var(--ink);margin-top:8px}
-.nav.ni{padding-left:28px;font-weight:500}
+.lang{display:flex;align-items:center;gap:4px;font-size:12px;font-weight:700;color:var(--mute)}
+.burger{color:var(--mute);display:grid;place-items:center}
+.min .prof,.min .nav,.min .subs{display:none}
+.nav{display:flex;align-items:center;gap:12px;width:100%;padding:8px 6px;border-radius:12px;color:var(--mute);font-weight:600;text-align:left;text-decoration:none}
+.nav:hover{color:var(--ink)}
+.ib{display:grid;place-items:center;flex:none;width:40px;height:40px;border-radius:12px;background:#111118}
+.nav.top,.grp{color:#f4f4f7;font-weight:700}
+.nav.on{color:#fff}.nav.on .ib{background:var(--navy)}
+.chev{margin-left:auto;display:grid;place-items:center;color:var(--mute)}
+.subs{margin:2px 0 6px 26px;padding-left:12px;border-left:1px solid var(--line)}
+.nav.ni{padding:7px 6px;font-weight:500}
+.nav.ni .ib{width:30px;height:30px;border-radius:9px}
+.prof{text-align:center;padding:0 0 22px}
+.avw{position:relative;width:84px;margin:0 auto 16px}
+.av{width:84px;height:84px;border-radius:50%;border:2px solid var(--navy);display:grid;place-items:center;color:#6f6bff;box-shadow:0 0 22px #4f46ff66,inset 0 0 14px #4f46ff33}
+.pro{position:absolute;left:50%;bottom:-10px;transform:translateX(-50%);background:#0b0b0f;border:1px solid #2a2a38;font-size:11px;font-weight:800;padding:2px 10px;border-radius:999px;letter-spacing:.5px}
+.prof b{display:block;font-size:16px}
+.notif{display:inline-flex;align-items:center;gap:8px;margin-top:14px;padding:11px 22px;border:1px solid var(--line);border-radius:16px;background:var(--panel);font-size:14px;font-weight:600}
+.banner{min-height:360px;border-radius:26px;border:1px solid var(--line);padding:38px;display:flex;align-items:flex-end;background:linear-gradient(0deg,#000d 0%,#0006 55%,#0002 100%),url(assets/paraguai.jpg) center/cover}
+.pill{background:var(--navy);font-size:12px;font-weight:800;padding:5px 12px;border-radius:8px;letter-spacing:.5px}
+.playb{width:52px;height:52px;border-radius:50%;background:#0b0b0fcc;border:1px solid var(--line);display:grid;place-items:center;text-decoration:none}
+.row{display:flex;gap:16px;overflow-x:auto;padding-bottom:10px}
+.free{align-self:center;background:#1d4ed8;font-size:9px;font-weight:800;padding:2px 8px;border-radius:5px;margin-bottom:6px}
+.poster{flex:none;width:180px;height:320px;border-radius:18px;border:1px solid var(--line);position:relative;display:flex;flex-direction:column;justify-content:flex-end;padding:16px;text-decoration:none;transition:transform .15s}
+.poster:hover{transform:translateY(-4px)}
+.pn{position:absolute;top:26px;left:0;right:0;text-align:center;font-size:96px;font-weight:900;opacity:.9}
+.poster b{text-align:center;text-transform:uppercase;font-size:14px}
+.pbar{height:4px;background:#ffffff22;border-radius:4px;margin-top:10px}.pbar i{display:block;height:100%;background:var(--ok);border-radius:4px}
 main{flex:1;min-width:0;max-width:1260px;padding:64px 36px 70px}
 #usd{position:fixed;top:14px;right:20px;z-index:5;background:var(--panel);border:1px solid var(--line);border-radius:999px;padding:7px 14px;font-size:14px;font-weight:700;white-space:nowrap}
 h1{font-size:36px;line-height:1.15;font-weight:700}
@@ -105,7 +130,7 @@ h1{font-size:36px;line-height:1.15;font-weight:700}
 .pin{background:var(--panel);color:var(--ink);border-color:var(--line)}
 .tagok{background:#0f2a1c}
 .link,.cur h3,.les.nx,.chip,.bars .cur{color:#a5a0ff}
-@media(max-width:900px){.cols,.calc-in{grid-template-columns:1fr}.g3,.g4{grid-template-columns:1fr}.bars{grid-template-columns:repeat(2,1fr)}h1{font-size:28px}.res{position:static}body{flex-direction:column}aside{width:100%;height:auto;position:static;display:flex;gap:6px;overflow-x:auto;padding:10px;border:0}.logo,.grp{display:none}.nav{width:auto;white-space:nowrap}.nav.ni{padding-left:12px}main{padding:20px 16px 60px}#usd{position:static;margin:10px 16px 0 auto;width:max-content}}
+@media(max-width:900px){.cols,.calc-in{grid-template-columns:1fr}.g3,.g4{grid-template-columns:1fr}.bars{grid-template-columns:repeat(2,1fr)}h1{font-size:28px}.res{position:static}body{flex-direction:column}aside{width:100%;height:auto;position:static;display:flex;gap:6px;overflow-x:auto;padding:10px;border:0}.brandrow,.grp,.prof{display:none}.subs{display:contents}.banner{min-height:300px;padding:22px}.nav{width:auto;white-space:nowrap}.ib,.nav.ni .ib{width:30px;height:30px}main{padding:20px 16px 60px}#usd{position:static;margin:10px 16px 0 auto;width:max-content}}
 </style>
 </head>
 <body>
@@ -114,7 +139,8 @@ h1{font-size:36px;line-height:1.15;font-weight:700}
 <main id="app"></main>
 <script>
 // ===== CONFIGURE AQUI =====
-const NAME = "";                                   // nome do aluno (vazio = "Olá!")
+const NAME = "Samuel";                             // nome do aluno (vazio = "Olá, bem-vindo.")
+const FULLNAME = "Samuel Cedro";                   // nome completo, mostrado no menu lateral
 const WHATS = "https://wa.me/5500000000000";       // suporte
 const GRUPO = WHATS;                               // link do grupo de alunos de perfumes
 const CHECKOUT = {};                               // id do produto -> link de pagamento (senão abre o WhatsApp)
@@ -149,12 +175,12 @@ const FARMA_LESSONS = [
 ];
 // Um módulo por tipo de produto. p = preço (R$). Em cada aula: min / video (ID do YouTube) / msg (mensagem pronta) são opcionais.
 const MODS = [
-  {id:"perfumes",n:"Perfumes",t:"Como importar perfumes",ico:"🧴",p:147,d:"Bom para começar: investimento menor e muita procura.",steps:[
+  {id:"perfumes",n:"Perfumes",t:"Como importar perfumes",img:"assets/compras.jpg",ico:"🧴",p:147,d:"Bom para começar: investimento menor e muita procura.",steps:[
     {t:"Conhecer",d:"Entenda o mercado de perfumes e o que vale a pena trazer.",l:[{t:"Por que vender perfumes"},{t:"Os que mais vendem hoje"},{t:"O que trazer e o que evitar"}]},
     {t:"Comprar",d:"Onde comprar, como pedir e quanto precisa gastar no mínimo.",l:[{t:"Lojas de perfume confiáveis"},{t:"Como falar com a loja",min:14,msg:"Olá! Tenho interesse em comprar perfumes para revenda. Pode me enviar a lista de produtos, os preços e o pedido mínimo?"},{t:"Pedido mínimo e pagamento"}]},
     {t:"Receber",d:"Como a mercadoria sai do Paraguai e chega na sua casa.",l:[{t:"Da loja até o freteiro"},{t:"Do freteiro até você"},{t:"Nota fiscal e conferência"}]},
     {t:"Vender",d:"Como conferir o produto, definir o preço e encontrar clientes.",l:[{t:"Original ou falsificado"},{t:"Quanto cobrar"},{t:"Onde e como vender"}]}]},
-  {id:"eletronicos",n:"Eletrônicos",t:"Como importar eletrônicos",ico:"📱",p:97,d:"Celulares, games, fones e informática. Ensina a conferir se o aparelho é original e funciona no Brasil.",steps:[
+  {id:"eletronicos",n:"Eletrônicos",t:"Como importar eletrônicos",img:"assets/eletronicos.jpg",ico:"📱",p:97,d:"Celulares, games, fones e informática. Ensina a conferir se o aparelho é original e funciona no Brasil.",steps:[
     {t:"Conhecer",d:"Entenda o mercado de eletrônicos e o que vale a pena trazer.",l:[{t:"Por que vender eletrônicos"},{t:"Os que mais saem hoje"},{t:"Cota, Anatel e o que evitar"}]},
     {t:"Comprar",d:"Onde comprar, como pedir e quanto precisa gastar no mínimo.",l:[{t:"Lojas de eletrônicos confiáveis"},{t:"Como falar com a loja",msg:"Olá! Tenho interesse em comprar eletrônicos para revenda. Pode me enviar a lista de produtos, os preços e o pedido mínimo?"},{t:"Pedido mínimo e pagamento"}]},
     {t:"Receber",d:"Como a mercadoria sai do Paraguai e chega na sua casa.",l:[{t:"Da loja até o freteiro"},{t:"Do freteiro até você"},{t:"Nota fiscal, garantia e conferência"}]},
@@ -165,6 +191,14 @@ const MODS = [
     {t:"Importar",d:"Planeje documentos, fornecedores e custos da operação formal.",l:FARMA_LESSONS.slice(6,9)},
     {t:"Distribuir",d:"Receba, armazene e venda com rastreabilidade.",l:FARMA_LESSONS.slice(9,12)}]}
 ];
+// Módulos gratuitos da página inicial, na ordem de "Principais". Ficam no fim de MODS para não mudar o índice das aulas já salvas.
+MODS.push(
+  {id:"primeiros",n:"Primeiros Passos",t:"Primeiros Passos",base:1,img:"assets/primeiros.jpg",steps:[{t:"Aulas",d:"Comece por aqui.",l:[{t:"Boas-vindas"},{t:"Como funciona o Paraguai Expresso"},{t:"O que você vai precisar"}]}]},
+  {id:"endereco",n:"Endereço",t:"Endereço",base:1,img:"assets/endereco.jpg",steps:[{t:"Aulas",d:"Seu endereço para receber as compras.",l:[{t:"O que é o endereço de envio"},{t:"Como cadastrar o seu"},{t:"Como usar nas compras"}]}]},
+  {id:"compras",n:"Compras",t:"Compras",base:1,img:"assets/compras-eletronicos.jpg",steps:[{t:"Aulas",d:"Como comprar com segurança.",l:[{t:"Como fazer o pedido"},{t:"Pagamento e confirmação"},{t:"Evitando golpes"}]}]},
+  {id:"envios",n:"Envios",t:"Envios",base:1,img:"assets/envios.jpg",steps:[{t:"Aulas",d:"Da loja até você.",l:[{t:"Despacho para o Brasil"},{t:"Rastreio do pedido"},{t:"Chegada e conferência"}]}]}
+);
+const BASE = MODS.filter(m=>m.base), PRODS = MODS.filter(m=>!m.base);
 const TUDO = 353;
 const MSGS = [
   {t:"Primeiro contato com a loja",m:"Olá! Tenho interesse em comprar [PRODUTO] para revenda. Pode me enviar a lista de produtos, os preços e o pedido mínimo?"},
@@ -186,7 +220,7 @@ const esc=s=>String(s).replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;"
 const idxs=id=>L.flatMap((l,i)=>l.m===id?[i]:[]);       // posições das aulas de um módulo
 const nDone=id=>idxs(id).filter(i=>S.done[i]).length;
 const nextL=id=>{const x=idxs(id);return x.find(i=>!S.done[i])??x[0]};
-const activeMod=()=>(MODS.find(m=>S.own[m.id]&&nDone(m.id)<idxs(m.id).length)||MODS.find(m=>S.own[m.id])||MODS[0]).id;
+const activeMod=()=>(PRODS.find(m=>S.own[m.id]&&nDone(m.id)<idxs(m.id).length)||PRODS.find(m=>S.own[m.id])||PRODS[0]).id;
 const buy=(id,n)=>CHECKOUT[id]||`${WHATS}?text=${encodeURIComponent("Quero liberar "+n)}`;
 const diasCalc=()=>Math.ceil(CALC_DIAS-(Date.now()-S.start)/864e5);
 const flag=k=>{S.flag[k]=1;save();render()};
@@ -195,26 +229,45 @@ const copy=(t,b)=>navigator.clipboard.writeText(t).then(()=>b.textContent="Copia
 let C={p:1,q:10,price:CALC[1].venda};
 
 // item = [nome, link, quando fica ativo: lista de rotas | nome da página "Em breve"]
-const soon=n=>[n,"#/breve/"+encodeURIComponent(n),n];
+const soon=(n,ic)=>[n,"#/breve/"+encodeURIComponent(n),n,ic];
+// ícones (estilo Feather, 24x24): nome -> caminhos do SVG
+const ICONS={home:"M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z M9 22V12h6v10",book:"M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z",users:"M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2 M9 11a4 4 0 1 0 0-8 4 4 0 0 0 0 8 M23 21v-2a4 4 0 0 0-3-3.87 M16 3.13a4 4 0 0 1 0 7.75",guide:"M4 19.5A2.5 2.5 0 0 1 6.5 17H20 M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z",send:"M22 2L11 13 M22 2l-7 20-4-9-9-4z",map:"M1 6v16l7-4 8 4 7-4V2l-7 4-8-4z M8 2v16 M16 6v16",play:"M12 22a10 10 0 1 0 0-20 10 10 0 0 0 0 20z M10 8l6 4-6 4z",grid:"M3 3h7v7H3z M14 3h7v7h-7z M14 14h7v7h-7z M3 14h7v7H3z",bag:"M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z M3 6h18 M16 10a4 4 0 0 1-8 0",search:"M11 19a8 8 0 1 0 0-16 8 8 0 0 0 0 16z M21 21l-4.35-4.35",layers:"M12 2L2 7l10 5 10-5z M2 17l10 5 10-5 M2 12l10 5 10-5",cpu:"M4 4h16v16H4z M9 9h6v6H9z M9 1v3 M15 1v3 M9 20v3 M15 20v3 M20 9h3 M20 14h3 M1 9h3 M1 14h3",calc:"M4 2h16v20H4z M8 6h8 M8 10h.01 M12 10h.01 M16 10h.01 M8 14h.01 M12 14h.01 M16 14h.01 M8 18h.01 M12 18h.01 M16 18h.01",msg:"M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z",box:"M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z M3.27 6.96L12 12.01l8.73-5.05 M12 22.08V12",camera:"M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z M12 17a4 4 0 1 0 0-8 4 4 0 0 0 0 8",star:"M12 2l3 7 7 .5-5.5 4.7 1.8 7L12 17.5 5.7 21.2l1.8-7L2 9.5 9 9z",gift:"M20 12v10H4V12 M2 7h20v5H2z M12 22V7 M12 7H7.5a2.5 2.5 0 0 1 0-5C11 2 12 7 12 7z M12 7h4.5a2.5 2.5 0 0 0 0-5C13 2 12 7 12 7z",trophy:"M6 9H4.5a2.5 2.5 0 0 1 0-5H6 M18 9h1.5a2.5 2.5 0 0 0 0-5H18 M4 22h16 M10 14.66V17c0 .55-.47.98-1.97 1.21C7.85 18.75 7 20.24 7 22 M14 14.66V17c0 .55.47.98 1.97 1.21C16.15 18.75 17 20.24 17 22 M18 2H6v7a6 6 0 0 0 12 0z",bell:"M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9 M13.73 21a2 2 0 0 1-3.46 0",user:"M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2 M12 11a4 4 0 1 0 0-8 4 4 0 0 0 0 8",down:"M6 9l6 6 6-6",menu:"M3 12h18 M3 6h18 M3 18h18"};
+const ic=(n,s=18)=>`<svg class="ic" style="width:${s}px;height:${s}px" viewBox="0 0 24 24">${ICONS[n].split(" M").map((d,i)=>`<path d="${i?"M":""}${d}"/>`).join("")}</svg>`;
 const MENU=[
-  ["Início",[["Minha trilha","#/trilha",["trilha"]],["Comunidade",GRUPO,[]],["Guia & Info","#/como",["como"]],soon("Redirecionadora")]],
-  ["Módulos",MODS.map(m=>[m.t,"#/produto/"+m.id,(r,a)=>r==="produto"&&a===m.id||r==="aula"&&L[a]?.m===m.id])],
-  ["Produtos",[["Todos os produtos","#/produtos",["produtos"]],soon("Selecionados"),soon("Fábricas"),soon("Taobao")]],
-  ["Ferramentas",[["Calculadora de lucro","#/calc",["calc"]],["Mensagens prontas","#/mensagens",["mensagens"]],soon("O Minerador"),soon("Rastreio"),soon("Baixar Imagens"),soon("Paraguai AI")]],
-  soon("Recompensas"),soon("Planos"),["Suporte",WHATS,[]],soon("Indique e Ganhe")
+  ["Início","home",[["Aulas","#/inicio",["inicio"],"book"],["Minha trilha","#/trilha",["trilha"],"map"],["Comunidade",GRUPO,[],"users"],["Guia & Info","#/como",["como"],"guide"],soon("Redirecionadora","send")]],
+  ["Módulos","layers",[...BASE,...PRODS].map(m=>[m.t,"#/produto/"+m.id,(r,a)=>r==="produto"&&a===m.id||r==="aula"&&L[a]?.m===m.id,"play"])],
+  ["Produtos","bag",[["Todos os produtos","#/produtos",["produtos"],"grid"],soon("Selecionados","bag"),soon("Fábricas","box"),soon("Taobao","search")]],
+  ["Ferramentas","cpu",[["Calculadora de lucro","#/calc",["calc"],"calc"],["Mensagens prontas","#/mensagens",["mensagens"],"msg"],soon("O Minerador","cpu"),soon("Rastreio","box"),soon("Baixar Imagens","camera"),soon("Paraguai AI","star")]],
+  soon("Recompensas","gift"),soon("Planos","trophy"),["Suporte",WHATS,[],"msg"],soon("Indique e Ganhe","gift")
 ];
 const G={};
 function render(){
-  const [r,a]=(location.hash.slice(2)||"trilha").split("/");
-  const item=([n,h,t],c="")=>`<a class="nav ${c} ${(typeof t==="function"?t(r,a):Array.isArray(t)?t.includes(r):r==="breve"&&decodeURIComponent(a||"")===t)?"on":""}" href="${h}" ${h[0]==="#"?"":'target="_blank" rel="noopener"'}>${n}</a>`;
-  nav.innerHTML=`<div class="logo">PARAGUAI <span>EXPRESSO</span></div>`+MENU.map(m=>Array.isArray(m[1])
-    ?`<button class="nav grp" onclick="G['${m[0]}']=G['${m[0]}']===false;render()">${m[0]}<span>${G[m[0]]===false?"▸":"▾"}</span></button>`+(G[m[0]]===false?"":m[1].map(x=>item(x,"ni")).join(""))
-    :item(m)).join("");
-  app.innerHTML=({trilha,produtos,produto,aula,calc,como,mensagens,breve}[r]||trilha)(a);
+  const [r,a]=(location.hash.slice(2)||"inicio").split("/");
+  const item=([n,h,t,i],c="")=>`<a class="nav ${c} ${(typeof t==="function"?t(r,a):Array.isArray(t)?t.includes(r):r==="breve"&&decodeURIComponent(a||"")===t)?"on":""}" href="${h}" ${h[0]==="#"?"":'target="_blank" rel="noopener"'}><span class="ib">${ic(i,c==="ni"?16:19)}</span>${n}</a>`;
+  nav.innerHTML=`<div class="brandrow"><a class="logo" href="#/inicio">PARAGUAI <span>EXPRESSO</span></a><span class="lang">BR ${ic("down",12)}</span><button class="burger" aria-label="Menu" onclick="document.body.classList.toggle('min')">${ic("menu",20)}</button></div>
+  <div class="prof"><div class="avw"><div class="av">${ic("user",44)}</div><span class="pro">PRO</span></div><b>${FULLNAME||NAME||"Aluno"}</b><a class="notif" href="#/breve/Notificações">${ic("bell",16)} Notificações</a></div>`+MENU.map(m=>m.length===3
+    ?`<button class="nav grp" onclick="G['${m[0]}']=G['${m[0]}']===false;render()"><span class="ib">${ic(m[1],19)}</span>${m[0]}<span class="chev">${ic("down",16)}</span></button>`+(G[m[0]]===false?"":`<div class="subs">${m[2].map(x=>item(x,"ni")).join("")}</div>`)
+    :item(m,"top")).join("");
+  app.innerHTML=({inicio,trilha,produtos,produto,aula,calc,como,mensagens,breve}[r]||inicio)(a);
   if(document.getElementById("res"))res();
   window.scrollTo(0,0);
 }
 window.onhashchange=render;
+
+function inicio(){
+  const HOME_PRODS=PRODS.filter(m=>m.id!=="farma"); // Farma fora da página inicial
+  const go=`#/aula/${nextL(activeMod())}`, PC=["#4a2a1c","#1c4a7a","#0f3d3a","#1a3a5c","#2a4a7a","#3a1c6b","#1c3f7a","#0e5c4a"];
+  const poster=(m,c,n,tag)=>`<a class="poster" style="background:${m.img?`linear-gradient(0deg,#000d,#0002 55%),url(${m.img}) center/cover`:`linear-gradient(165deg,${c},#05060a)`}" href="#/produto/${m.id}">${m.img&&typeof n!=="number"?"":`<span class="pn">${n}</span>`}${tag}<b>${m.t}</b><div class="pbar"><i style="width:${Math.round(100*nDone(m.id)/idxs(m.id).length)}%"></i></div></a>`;
+  return `<small style="color:var(--navy);font-weight:700;letter-spacing:1.5px">BEM-VINDO DE VOLTA</small>
+  <h1 style="font-size:44px;margin:4px 0 22px">Olá, ${NAME?`<span style="background:linear-gradient(90deg,#4f46ff,#7c3aed);-webkit-background-clip:text;background-clip:text;color:transparent">${NAME}</span>`:"bem-vindo"}.</h1>
+  <div class="banner"><div><span class="pill">AULA INICIAL</span><span style="color:var(--mute);font-size:14px;margin-left:10px">Vídeo Exclusivo</span>
+  <h2 style="font-size:40px;margin:12px 0 4px">Assista a esse vídeo!</h2><p style="color:#c9c9d6;max-width:380px">Descubra como aproveitar ao máximo o Paraguai Expresso.</p>
+  <div style="display:flex;gap:12px;align-items:center;margin-top:22px"><a class="btn" href="${go}">Assistir Agora</a><a class="playb" href="${go}" aria-label="Assistir">▶</a></div></div></div>
+  <h2 style="font-size:24px;margin:34px 0 14px;display:flex;justify-content:space-between;align-items:baseline">Principais <small style="font-size:13px;color:var(--mute)">${BASE.length} Módulos</small></h2>
+  <div class="row">${BASE.map((m,i)=>poster(m,PC[i],i+1,'<span class="free">AULA GRÁTIS</span>')).join("")}</div>
+  <h2 style="font-size:24px;margin:30px 0 14px;display:flex;justify-content:space-between;align-items:baseline">Como importar <small style="font-size:13px;color:var(--mute)">${HOME_PRODS.length} Módulos</small></h2>
+  <div class="row">${HOME_PRODS.map((m,i)=>poster(m,PC[5+i],m.ico,"")).join("")}</div>`;
+}
 
 function trilha(){
   const am=activeMod(), M=MODS.find(m=>m.id===am), nd=nDone(am), tot=idxs(am).length, n=nextL(am);
@@ -256,7 +309,7 @@ function trilha(){
 function produtos(){
   return `<h1>Escolha o que você quer vender</h1><p class="sub">Você paga <b>uma vez</b> por produto e ele fica liberado para sempre.</p>
   <div class="card" style="margin:24px 0"><b>Sobre o módulo Farma</b><p style="color:var(--mute);margin-top:8px">Guia em texto para empresas, farmácias e importadores regularizados. Cada aula traz ações práticas e links para Anvisa e Receita Federal. Importação pessoal não é caminho para revenda.</p></div>
-  <div class="grid g3">${MODS.map(p=>{const own=S.own[p.id];return `<div class="card prod ${own?"own":""}"><div style="display:flex"><div class="ico">${p.ico}</div>${own?'<span class="tagok">Você já tem</span>':""}</div><h3 style="font-size:22px">${p.t}</h3><p style="color:var(--mute);font-size:15px;flex:1">${p.d}</p>
+  <div class="grid g3">${PRODS.map(p=>{const own=S.own[p.id];return `<div class="card prod ${own?"own":""}"><div style="display:flex"><div class="ico">${p.ico}</div>${own?'<span class="tagok">Você já tem</span>':""}</div><h3 style="font-size:22px">${p.t}</h3><p style="color:var(--mute);font-size:15px;flex:1">${p.d}</p>
   ${own?"":`<div class="price">R$ ${p.p} <small>pagamento único</small></div>`}
   ${own?`<a class="btn navy" href="#/produto/${p.id}">Abrir módulo</a>`:`<a class="btn" href="${buy(p.id,p.n)}" target="_blank" rel="noopener">Liberar ${p.n}</a>`}</div>`}).join("")}</div>
   <div class="hero" style="margin-top:28px"><div><h2>Quer liberar tudo de uma vez?</h2><p>Todos os produtos de hoje e os que forem lançados, mais a calculadora por 12 meses. O que você já pagou é descontado.</p></div>
@@ -265,16 +318,16 @@ function produtos(){
 
 function produto(id){
   const p=MODS.find(x=>x.id===id);
-  if(!p||!S.own[id]) return `<a class="back" href="#/produtos">Voltar para Produtos</a><h1>${p?p.t:"Módulo"}</h1><p class="sub">Este módulo ainda não está liberado para você.</p>`;
+  if(!p||!(p.base||S.own[id])) return `<a class="back" href="#/produtos">Voltar para Produtos</a><h1>${p?p.t:"Módulo"}</h1><p class="sub">Este módulo ainda não está liberado para você.</p>`;
   const ix=idxs(id), nd=nDone(id), n=nextL(id), done=nd===ix.length; let idx=ix[0];
   const cur=L[n].si;
   return `<a class="back" href="#/produtos">Voltar para Produtos</a>
-  <div style="display:flex;justify-content:space-between;align-items:flex-end;gap:16px;flex-wrap:wrap"><div><h1>${p.t}</h1><p class="sub">Siga as ${p.steps.length} etapas na ordem. Cada etapa tem 3 aulas curtas.</p>${id==="farma"?'<p class="lesson-note">Guia para empresas regularizadas. Confira as exigências atuais com a equipe técnica antes de operar.</p>':""}</div>
+  <div style="display:flex;justify-content:space-between;align-items:flex-end;gap:16px;flex-wrap:wrap"><div><h1>${p.t}</h1><p class="sub">Siga as aulas na ordem.</p>${id==="farma"?'<p class="lesson-note">Guia para empresas regularizadas. Confira as exigências atuais com a equipe técnica antes de operar.</p>':""}</div>
   <div class="card" style="padding:12px 18px;border-radius:14px;color:var(--mute)">Você fez <b style="font-size:22px;color:var(--ink);margin:0 6px">${nd} de ${ix.length}</b> aulas</div></div>
   <div class="hero" style="margin:22px 0"><div><small>${done?"Tudo feito":"Próxima aula · Etapa "+(cur+1)}</small><h2>${L[n].t}</h2><p>${id==="farma"?"Guia em texto com fontes oficiais":L[n].min?L[n].min+" minutos":"Aula curta"}${L[n].msg?" · com mensagem pronta para copiar":""}</p></div><a class="btn" href="#/aula/${n}">${id==="farma"?"Ler aula":done?"Rever aulas":"▶ Assistir agora"}</a></div>
   <div class="grid" style="grid-template-columns:repeat(auto-fit,minmax(240px,1fr))">${p.steps.map((s,si)=>{const full=s.l.every((_,j)=>S.done[idx+j]);const st=`<div class="stp ${si===cur&&!done?"cur":""}"><div style="display:flex;gap:10px;align-items:center"><div class="dot" style="width:36px;height:36px;${full?"background:var(--ok);color:#fff":si===cur&&!done?"background:var(--navy);color:#fff":""}">${full?"✓":si+1}</div><div><small style="color:var(--mute);font-size:12px">Etapa ${si+1}${si===cur&&!done?" · você está aqui":""}</small><h3>${s.t}</h3></div></div><p style="color:var(--mute);font-size:14px;margin:12px 0 8px">${s.d}</p>
   ${s.l.map((l,j)=>{const i=idx+j;return `<a class="les ${S.done[i]?"ok":""} ${i===n&&!done?"nx":""}" href="#/aula/${i}">${S.done[i]?'<span class="mk">✓</span>':i===n&&!done?'<span class="mk" style="color:var(--navy)">▶</span>':'<span class="mk o"></span>'}${l.t}</a>`}).join("")}</div>`;idx+=s.l.length;return st}).join("")}</div>
-  <div class="grid g3" style="margin-top:24px">${(id==="farma"?[["🔎","Consultar medicamentos","Confira registro e situação na Anvisa",FARMA_SOURCES.registro[1]],["🏢","Verificar autorizações","Consulte a AFE exigida para cada atividade",FARMA_SOURCES.afe[1]],["📦","Importação comercial","Veja as orientações oficiais para empresas",FARMA_SOURCES.importacao[1]]]:[["💬","Mensagens prontas","Copie e envie para a loja e o freteiro","#/mensagens"],["🧮","Calcular meu lucro","Veja antes de comprar quanto vai ganhar","#/calc"],["👥","Grupo de "+p.n.toLowerCase(),"Tire dúvidas com outros alunos",GRUPO]]).map(([i,t,d,h])=>`<a class="card" style="display:flex;gap:14px;align-items:center;text-decoration:none;padding:18px" href="${h}" ${h[0]!=="#"?'target="_blank" rel="noopener"':""}><div class="ico">${i}</div><div><b>${t}</b><div style="color:var(--mute);font-size:14px">${d}</div></div></a>`).join("")}</div>`;
+  <div class="grid g3" style="margin-top:24px">${(id==="farma"?[["🔎","Consultar medicamentos","Confira registro e situação na Anvisa",FARMA_SOURCES.registro[1]],["🏢","Verificar autorizações","Consulte a AFE exigida para cada atividade",FARMA_SOURCES.afe[1]],["📦","Importação comercial","Veja as orientações oficiais para empresas",FARMA_SOURCES.importacao[1]]]:[["💬","Mensagens prontas","Copie e envie para a loja e o freteiro","#/mensagens"],["🧮","Calcular meu lucro","Veja antes de comprar quanto vai ganhar","#/calc"],["👥",p.base?"Grupo de alunos":"Grupo de "+p.n.toLowerCase(),"Tire dúvidas com outros alunos",GRUPO]]).map(([i,t,d,h])=>`<a class="card" style="display:flex;gap:14px;align-items:center;text-decoration:none;padding:18px" href="${h}" ${h[0]!=="#"?'target="_blank" rel="noopener"':""}><div class="ico">${i}</div><div><b>${t}</b><div style="color:var(--mute);font-size:14px">${d}</div></div></a>`).join("")}</div>`;
 }
 
 function textoAula(l){
