@@ -111,7 +111,6 @@ h1{font-size:36px;line-height:1.15;font-weight:700}
 .player{aspect-ratio:16/9;background:#dde3f0;border-radius:20px;display:grid;place-items:center;color:var(--mute);overflow:hidden;margin:18px 0}
 .player iframe{width:100%;height:100%;border:0}
 .msg{background:var(--soft);border-radius:14px;padding:14px 16px;margin:10px 0;white-space:pre-wrap;font-size:15px}
-.lesson-copy{display:grid;gap:18px;margin:20px 0}.lesson-lead{font-size:18px;line-height:1.55}.lesson-copy h2{font-size:20px;margin-bottom:10px}.lesson-copy ul{padding-left:22px;color:var(--mute)}.lesson-copy li{margin:9px 0}.lesson-action{border-left:3px solid var(--navy);padding:14px 18px;background:var(--soft);border-radius:0 12px 12px 0}.lesson-sources{display:flex;gap:10px;flex-wrap:wrap}.lesson-sources a{color:var(--amber);font-size:14px}.lesson-note{color:var(--mute);font-size:14px;margin:14px 0}
 .back{color:var(--mute);font-size:14px;display:inline-block;margin-bottom:10px}
 /* tema escuro */
 .card,.stp,.opt:not(.on){background:var(--panel)}
@@ -146,33 +145,6 @@ const GRUPO = WHATS;                               // link do grupo de alunos de
 const CHECKOUT = {};                               // id do produto -> link de pagamento (senão abre o WhatsApp)
 let USD = 5.4;                                     // valor de reserva; é atualizado pela cotação ao vivo
 const FRETEIRO = 80, ENVIO = 40, CALC_DIAS = 30;
-const FARMA_SOURCES = {
-  pessoal:["Anvisa · importação para uso pessoal","https://www.gov.br/anvisa/pt-br/assuntos/noticias-anvisa/2025/anvisa-reforca-orientacoes-sobre-importacao-de-produtos-para-tratamento-de-saude"],
-  bagagem:["Receita Federal · bagagem e revenda","https://www.gov.br/receitafederal/pt-br/assuntos/aduana-e-comercio-exterior/viagens-internacionais/guia-do-viajante/perguntas-e-respostas"],
-  afe:["Anvisa · autorização de funcionamento","https://www.gov.br/anvisa/pt-br/acessoainformacao/perguntasfrequentes/administrativo/autorizacao-de-funcionamento-afe-ou-ae/autorizacao-de-funcionamento-afe-ou-ae"],
-  varejo:["Anvisa · AFE de farmácias e drogarias","https://www.gov.br/anvisa/pt-br/setorregulado/regularizacao/farmacias-e-drogarias/autorizacao-de-funcionamento-afe-ou-autorizacao-especial-ae/perguntas-frequentes/informacoes-gerais-sobre-autorizacao-de-funcionamento-afe/"],
-  registro:["Anvisa · consulta de medicamentos","https://www.gov.br/anvisa/pt-br/sistemas/consulta-a-registro-de-medicamentos"],
-  classificacao:["Anvisa · consultas por tipo de produto","https://www.gov.br/anvisa/pt-br/comunicacao/campanhas/estetica/como-saber-se-um-produto-e-autorizado-pela-anvisa"],
-  controlados:["Anvisa · substâncias controladas","https://www.gov.br/anvisa/pt-br/assuntos/medicamentos/controlados/lista-substancias"],
-  importacao:["Anvisa · importação de produtos sujeitos à vigilância","https://www.gov.br/anvisa/pt-br/assuntos/paf/anuencia/controle-administrativo-anvisa-no-comercio-exterior/importacao-de-produtos/informacoes-gerais/"],
-  remessa:["Receita Federal · remessas para revenda","https://www.gov.br/receitafederal/pt-br/assuntos/aduana-e-comercio-exterior/manuais/remessas-postal-e-expressa/topicos/declaracao"],
-  transporte:["Anvisa · distribuição, armazenagem e transporte","https://www.gov.br/anvisa/pt-br/assuntos/noticias-anvisa/2021/anvisa-esclarece-sobre-distribuicao-armazenagem-e-transporte-de-farmacos"],
-  vigimed:["Anvisa · notificações no VigiMed","https://www.gov.br/anvisa/pt-br/assuntos/fiscalizacao-e-monitoramento/notificacoes/vigimed/vigimed-saiba-mais"]
-};
-const FARMA_LESSONS = [
-  {t:"Uso pessoal não é revenda",intro:"A importação feita por uma pessoa para seu próprio tratamento não forma estoque comercial. O mesmo vale para mercadorias trazidas como bagagem.",points:["A Anvisa trata a compra pelo próprio paciente como uso pessoal, sem destinação comercial.","Bens para revenda não se enquadram nas regras comuns de bagagem do viajante.","Antes de negociar um lote, identifique a empresa importadora e o regime de importação aplicável."],action:"Defina por escrito se a operação é de uso pessoal ou comercial. Para este curso, siga apenas o caminho comercial regularizado.",sources:["pessoal","bagagem"]},
-  {t:"Classifique cada produto",intro:"Medicamento, produto para saúde, cosmético, higiene e suplemento não seguem necessariamente o mesmo processo.",points:["Registre o nome, fabricante, composição e finalidade de cada item.","Confirme a categoria regulatória nos canais da Anvisa antes de tratar um produto como medicamento.","Não conclua que a aprovação no Paraguai autoriza a venda no Brasil."],action:"Monte uma ficha para cada produto com categoria, fabricante e situação regulatória brasileira.",sources:["classificacao","registro"]},
-  {t:"Quem pode operar",intro:"A importação comercial de produtos sujeitos à vigilância sanitária envolve uma empresa regularizada e responsabilidades técnicas definidas.",points:["Verifique licença sanitária local e AFE para a atividade e a categoria de produto da empresa.","Uma farmácia varejista e uma importadora exercem atividades diferentes: confira a autorização adequada a cada uma.","Trate a habilitação aduaneira e a responsabilidade técnica com profissionais da operação antes de fechar o pedido."],action:"Liste CNPJ, licença, AFE, atividade autorizada e responsáveis pela importação e pela venda.",sources:["afe","varejo"]},
-  {t:"Consulte o registro do medicamento",intro:"A embalagem estrangeira não comprova que o medicamento está regularizado para comercialização no Brasil.",points:["Pesquise nome, fabricante ou número de registro na consulta oficial da Anvisa.","Abra o resultado e confirme a situação ativa ou válida, a apresentação e o detentor do registro.","Se não localizar o produto ou houver divergência, suspenda a seleção até obter análise regulatória."],action:"Anexe à ficha do produto o resultado atualizado da consulta e a data da verificação.",sources:["registro","classificacao"]},
-  {t:"Confirme as autorizações",intro:"A AFE deve corresponder à atividade efetivamente realizada; autorização para vender no varejo não substitui automaticamente a de importar.",points:["Confira a AFE da importadora para a categoria de medicamentos e a atividade de importação.","Confira a licença sanitária do estabelecimento e as autorizações da farmácia ou distribuidora que participará da cadeia.","Valide documentos e escopo com o responsável técnico antes de contratar fornecedor ou transporte."],action:"Só avance quando cada empresa da cadeia tiver seu papel e suas autorizações documentados.",sources:["afe","varejo"]},
-  {t:"Atenção aos controlados",intro:"Substâncias sujeitas a controle especial exigem avaliação própria; não entram em um pedido comum por analogia com outros produtos.",points:["Consulte a lista vigente de substâncias controladas da Anvisa.","Verifique com o responsável técnico se são exigidas Autorização Especial e autorizações específicas de importação.","Não compre nem envie itens controlados antes de concluir essa análise."],action:"Marque qualquer item potencialmente controlado como pendente de avaliação técnica e regulatória.",sources:["controlados","afe"]},
-  {t:"Planeje a importação comercial",intro:"O processo comercial depende da classificação do produto, do importador e da documentação exigida para a operação.",points:["Defina quem será o importador formal e quem é o detentor do registro ou responsável pela regularização.","Confira no portal da Anvisa a necessidade de anuência e o procedimento aplicável ao item.","Alinhe documentos fiscais e aduaneiros com o despachante e o responsável técnico antes do embarque."],action:"Crie um checklist do processo específico antes de efetuar pagamento ou reservar transporte.",sources:["importacao","remessa"]},
-  {t:"Valide fornecedor e documentos",intro:"Preço baixo não substitui origem comprovada, documentação comercial e condições adequadas de transporte.",points:["Confirme a identidade e as autorizações das empresas envolvidas.","Peça proposta e documentos com descrição, fabricante, apresentação, lote e validade quando aplicável.","Verifique as condições de conservação informadas pelo fabricante e a capacidade logística de cumpri-las."],action:"Reúna em uma pasta os dados do fornecedor, do produto e do fluxo logístico para revisão da equipe técnica.",sources:["afe","transporte"]},
-  {t:"Calcule o custo total",intro:"Uma estimativa comercial deve contemplar mais do que preço de compra e cotação do dólar.",points:["Inclua tributos, taxas, frete internacional, desembaraço, armazenagem e transporte adequado.","Considere perdas, prazo de validade, devoluções e custos de conformidade da operação.","Não use a calculadora genérica de perfumes da plataforma para decidir a margem de medicamentos."],action:"Peça uma planilha de custo da operação ao contador e ao despachante antes de definir preço de venda.",sources:["importacao","transporte"]},
-  {t:"Receba e rastreie o lote",intro:"A conferência no recebimento protege a qualidade do produto e permite investigar problemas posteriores.",points:["Compare produto, apresentação, quantidade, lote e validade com os documentos da operação.","Registre integridade da embalagem e evidências de conservação durante o transporte.","Separe divergências e danos para avaliação do responsável técnico antes de disponibilizar o lote."],action:"Crie um registro de recebimento por lote com documentos, data, condição e responsável pela conferência.",sources:["transporte"]},
-  {t:"Armazene e transporte corretamente",intro:"As condições declaradas pelo fabricante devem ser mantidas ao longo da distribuição e do armazenamento.",points:["Defina controles para temperatura, umidade, acesso e rastreabilidade conforme o produto.","Verifique se armazenador e transportadora cumprem as exigências aplicáveis às suas atividades.","Documente desvios e a decisão técnica sobre qualquer carga fora das condições previstas."],action:"Revise o plano de armazenagem e transporte com o responsável técnico antes da primeira remessa.",sources:["transporte","afe"]},
-  {t:"Venda com rastreabilidade",intro:"A comercialização deve ocorrer pelos canais autorizados, mantendo documentação e acompanhamento após a venda.",points:["Confirme que o estabelecimento pode comercializar o produto e cumpra as regras de dispensação aplicáveis.","Mantenha rastreabilidade dos lotes e procedimentos para queixas, recolhimentos e devoluções.","Encaminhe suspeitas de eventos adversos a medicamentos pelos canais de farmacovigilância apropriados."],action:"Antes de vender, valide o fluxo de dispensação, rastreabilidade e resposta a problemas com a equipe técnica.",sources:["varejo","vigimed"]}
-];
 // Um módulo por tipo de produto. p = preço (R$). Em cada aula: min / video (ID do YouTube) / msg (mensagem pronta) são opcionais.
 const MODS = [
   {id:"perfumes",n:"Perfumes",t:"Como importar perfumes",img:"assets/compras.jpg",ico:"🧴",p:147,d:"Bom para começar: investimento menor e muita procura.",steps:[
@@ -185,11 +157,7 @@ const MODS = [
     {t:"Comprar",d:"Onde comprar, como pedir e quanto precisa gastar no mínimo.",l:[{t:"Lojas de eletrônicos confiáveis"},{t:"Como falar com a loja",msg:"Olá! Tenho interesse em comprar eletrônicos para revenda. Pode me enviar a lista de produtos, os preços e o pedido mínimo?"},{t:"Pedido mínimo e pagamento"}]},
     {t:"Receber",d:"Como a mercadoria sai do Paraguai e chega na sua casa.",l:[{t:"Da loja até o freteiro"},{t:"Do freteiro até você"},{t:"Nota fiscal, garantia e conferência"}]},
     {t:"Vender",d:"Como testar o aparelho, definir o preço e encontrar clientes.",l:[{t:"Original ou falsificado"},{t:"Quanto cobrar"},{t:"Onde e como vender"}]}]},
-  {id:"farma",n:"Farma",t:"Medicamentos e produtos de farmácia",ico:"💊",p:147,d:"Guia em texto para empresas regularizadas, com verificação de produtos, autorizações e fontes oficiais.",steps:[
-    {t:"Entender",d:"Separe uso pessoal de comércio e defina quem pode operar.",l:FARMA_LESSONS.slice(0,3)},
-    {t:"Regularizar",d:"Verifique produtos, autorizações e controles especiais.",l:FARMA_LESSONS.slice(3,6)},
-    {t:"Importar",d:"Planeje documentos, fornecedores e custos da operação formal.",l:FARMA_LESSONS.slice(6,9)},
-    {t:"Distribuir",d:"Receba, armazene e venda com rastreabilidade.",l:FARMA_LESSONS.slice(9,12)}]}
+
 ];
 // Módulos gratuitos da página inicial, na ordem de "Principais". Ficam no fim de MODS para não mudar o índice das aulas já salvas.
 MODS.push(
@@ -211,7 +179,7 @@ const CALC = [
 ];
 // ===== FIM =====
 const L = MODS.flatMap(m=>m.steps.flatMap((s,si)=>s.l.map(l=>({...l,si,m:m.id}))));
-let S = {done:{},own:{perfumes:1,eletronicos:1,farma:1},flag:{},start:Date.now()}; // own = módulos liberados
+let S = {done:{},own:{perfumes:1,eletronicos:1},flag:{},start:Date.now()}; // own = módulos liberados
 try{S = {...S,...JSON.parse(localStorage.pe3)}}catch{}
 const save=()=>{try{localStorage.pe3=JSON.stringify(S)}catch{}};
 save();
@@ -255,7 +223,7 @@ function render(){
 window.onhashchange=render;
 
 function inicio(){
-  const HOME_PRODS=PRODS.filter(m=>m.id!=="farma"); // Farma fora da página inicial
+  const HOME_PRODS=PRODS;
   const go=`#/aula/${nextL(activeMod())}`, PC=["#4a2a1c","#1c4a7a","#0f3d3a","#1a3a5c","#2a4a7a","#3a1c6b","#1c3f7a","#0e5c4a"];
   const poster=(m,c,n,tag)=>`<a class="poster" style="background:${m.img?`linear-gradient(0deg,#000d,#0002 55%),url(${m.img}) center/cover`:`linear-gradient(165deg,${c},#05060a)`}" href="#/produto/${m.id}">${m.img&&typeof n!=="number"?"":`<span class="pn">${n}</span>`}${tag}<b>${m.t}</b><div class="pbar"><i style="width:${Math.round(100*nDone(m.id)/idxs(m.id).length)}%"></i></div></a>`;
   return `<small style="color:var(--navy);font-weight:700;letter-spacing:1.5px">BEM-VINDO DE VOLTA</small>
@@ -308,7 +276,6 @@ function trilha(){
 
 function produtos(){
   return `<h1>Escolha o que você quer vender</h1><p class="sub">Você paga <b>uma vez</b> por produto e ele fica liberado para sempre.</p>
-  <div class="card" style="margin:24px 0"><b>Sobre o módulo Farma</b><p style="color:var(--mute);margin-top:8px">Guia em texto para empresas, farmácias e importadores regularizados. Cada aula traz ações práticas e links para Anvisa e Receita Federal. Importação pessoal não é caminho para revenda.</p></div>
   <div class="grid g3">${PRODS.map(p=>{const own=S.own[p.id];return `<div class="card prod ${own?"own":""}"><div style="display:flex"><div class="ico">${p.ico}</div>${own?'<span class="tagok">Você já tem</span>':""}</div><h3 style="font-size:22px">${p.t}</h3><p style="color:var(--mute);font-size:15px;flex:1">${p.d}</p>
   ${own?"":`<div class="price">R$ ${p.p} <small>pagamento único</small></div>`}
   ${own?`<a class="btn navy" href="#/produto/${p.id}">Abrir módulo</a>`:`<a class="btn" href="${buy(p.id,p.n)}" target="_blank" rel="noopener">Liberar ${p.n}</a>`}</div>`}).join("")}</div>
@@ -322,25 +289,20 @@ function produto(id){
   const ix=idxs(id), nd=nDone(id), n=nextL(id), done=nd===ix.length; let idx=ix[0];
   const cur=L[n].si;
   return `<a class="back" href="#/produtos">Voltar para Produtos</a>
-  <div style="display:flex;justify-content:space-between;align-items:flex-end;gap:16px;flex-wrap:wrap"><div><h1>${p.t}</h1><p class="sub">Siga as aulas na ordem.</p>${id==="farma"?'<p class="lesson-note">Guia para empresas regularizadas. Confira as exigências atuais com a equipe técnica antes de operar.</p>':""}</div>
+  <div style="display:flex;justify-content:space-between;align-items:flex-end;gap:16px;flex-wrap:wrap"><div><h1>${p.t}</h1><p class="sub">Siga as aulas na ordem.</p></div>
   <div class="card" style="padding:12px 18px;border-radius:14px;color:var(--mute)">Você fez <b style="font-size:22px;color:var(--ink);margin:0 6px">${nd} de ${ix.length}</b> aulas</div></div>
-  <div class="hero" style="margin:22px 0"><div><small>${done?"Tudo feito":"Próxima aula · Etapa "+(cur+1)}</small><h2>${L[n].t}</h2><p>${id==="farma"?"Guia em texto com fontes oficiais":L[n].min?L[n].min+" minutos":"Aula curta"}${L[n].msg?" · com mensagem pronta para copiar":""}</p></div><a class="btn" href="#/aula/${n}">${id==="farma"?"Ler aula":done?"Rever aulas":"▶ Assistir agora"}</a></div>
+  <div class="hero" style="margin:22px 0"><div><small>${done?"Tudo feito":"Próxima aula · Etapa "+(cur+1)}</small><h2>${L[n].t}</h2><p>${L[n].min?L[n].min+" minutos":"Aula curta"}${L[n].msg?" · com mensagem pronta para copiar":""}</p></div><a class="btn" href="#/aula/${n}">${done?"Rever aulas":"▶ Assistir agora"}</a></div>
   <div class="grid" style="grid-template-columns:repeat(auto-fit,minmax(240px,1fr))">${p.steps.map((s,si)=>{const full=s.l.every((_,j)=>S.done[idx+j]);const st=`<div class="stp ${si===cur&&!done?"cur":""}"><div style="display:flex;gap:10px;align-items:center"><div class="dot" style="width:36px;height:36px;${full?"background:var(--ok);color:#fff":si===cur&&!done?"background:var(--navy);color:#fff":""}">${full?"✓":si+1}</div><div><small style="color:var(--mute);font-size:12px">Etapa ${si+1}${si===cur&&!done?" · você está aqui":""}</small><h3>${s.t}</h3></div></div><p style="color:var(--mute);font-size:14px;margin:12px 0 8px">${s.d}</p>
   ${s.l.map((l,j)=>{const i=idx+j;return `<a class="les ${S.done[i]?"ok":""} ${i===n&&!done?"nx":""}" href="#/aula/${i}">${S.done[i]?'<span class="mk">✓</span>':i===n&&!done?'<span class="mk" style="color:var(--navy)">▶</span>':'<span class="mk o"></span>'}${l.t}</a>`}).join("")}</div>`;idx+=s.l.length;return st}).join("")}</div>
-  <div class="grid g3" style="margin-top:24px">${(id==="farma"?[["🔎","Consultar medicamentos","Confira registro e situação na Anvisa",FARMA_SOURCES.registro[1]],["🏢","Verificar autorizações","Consulte a AFE exigida para cada atividade",FARMA_SOURCES.afe[1]],["📦","Importação comercial","Veja as orientações oficiais para empresas",FARMA_SOURCES.importacao[1]]]:[["💬","Mensagens prontas","Copie e envie para a loja e o freteiro","#/mensagens"],["🧮","Calcular meu lucro","Veja antes de comprar quanto vai ganhar","#/calc"],["👥",p.base?"Grupo de alunos":"Grupo de "+p.n.toLowerCase(),"Tire dúvidas com outros alunos",GRUPO]]).map(([i,t,d,h])=>`<a class="card" style="display:flex;gap:14px;align-items:center;text-decoration:none;padding:18px" href="${h}" ${h[0]!=="#"?'target="_blank" rel="noopener"':""}><div class="ico">${i}</div><div><b>${t}</b><div style="color:var(--mute);font-size:14px">${d}</div></div></a>`).join("")}</div>`;
+  <div class="grid g3" style="margin-top:24px">${([["💬","Mensagens prontas","Copie e envie para a loja e o freteiro","#/mensagens"],["🧮","Calcular meu lucro","Veja antes de comprar quanto vai ganhar","#/calc"],["👥",p.base?"Grupo de alunos":"Grupo de "+p.n.toLowerCase(),"Tire dúvidas com outros alunos",GRUPO]]).map(([i,t,d,h])=>`<a class="card" style="display:flex;gap:14px;align-items:center;text-decoration:none;padding:18px" href="${h}" ${h[0]!=="#"?'target="_blank" rel="noopener"':""}><div class="ico">${i}</div><div><b>${t}</b><div style="color:var(--mute);font-size:14px">${d}</div></div></a>`).join("")}</div>`;
 }
 
-function textoAula(l){
-  return `<div class="lesson-copy"><div class="card"><p class="lesson-lead">${esc(l.intro)}</p><h2 style="margin-top:20px">Pontos principais</h2><ul>${l.points.map(p=>`<li>${esc(p)}</li>`).join("")}</ul></div>
-  <div class="lesson-action"><b>Próximo passo</b><p>${esc(l.action)}</p></div>
-  <div class="card"><h2>Fontes oficiais</h2><div class="lesson-sources">${l.sources.map(k=>`<a href="${FARMA_SOURCES[k][1]}" target="_blank" rel="noopener noreferrer">${esc(FARMA_SOURCES[k][0])} ↗</a>`).join("")}</div><p class="lesson-note">Conteúdo revisado em 16/10/2026. Consulte sempre a situação vigente antes de tomar uma decisão comercial.</p></div></div>`;
-}
 
 function aula(i){
   i=+i; const l=L[i]; if(!l) return produto(MODS[0].id);
   const M=MODS.find(m=>m.id===l.m), nx=L[i+1]?.m===l.m?L[i+1]:null;
   return `<a class="back" href="#/produto/${l.m}">Voltar para ${M.t}</a><small style="display:block;color:var(--mute)">Etapa ${l.si+1} · ${M.steps[l.si].t}</small><h1>${l.t}</h1>
-  ${l.intro?textoAula(l):`<div class="player">${l.video?`<iframe src="https://www.youtube.com/embed/${encodeURIComponent(l.video)}" allowfullscreen></iframe>`:"Vídeo em breve"}</div>`}
+  <div class="player">${l.video?`<iframe src="https://www.youtube.com/embed/${encodeURIComponent(l.video)}" allowfullscreen></iframe>`:"Vídeo em breve"}</div>
   ${l.msg?`<div class="card"><b>Mensagem pronta</b><div class="msg">${l.msg}</div><button class="btn navy sm" onclick="copy(L[${i}].msg,this)">Copiar mensagem</button></div>`:""}
   <div style="display:flex;gap:12px;margin-top:20px;flex-wrap:wrap"><button class="btn ${S.done[i]?"ghost":""}" onclick="markL(${i})">${S.done[i]?"✓ Concluída (desfazer)":"Marcar como concluída"}</button>${nx?`<a class="btn navy" href="#/aula/${i+1}">Próxima aula →</a>`:""}</div>`;
 }
