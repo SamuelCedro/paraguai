@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="pt-BR"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Checkout — Paraguai Academy</title>
+<link rel="icon" href="/mirror/connectacademy.com.br/portal/assets/favicon-32x32.png">
+<style>
+@font-face{font-family:Manrope;src:url(/mirror/connectacademy.com.br/portal/assets/Manrope-ExtraBold.ttf);font-weight:800}
+*{box-sizing:border-box}body{margin:0;font-family:Manrope,Arial,sans-serif;color:#121316;background:#fff}
+.wrap{display:grid;grid-template-columns:minmax(0,45fr) minmax(0,55fr);min-height:100vh}
+.left{position:sticky;top:0;height:100vh;background:#05060d;color:#fff;padding:44px;display:flex;flex-direction:column;overflow:hidden}
+.left:before{content:"";position:absolute;inset:0;background:url(/mirror/connectacademy.com.br/portal/assets/hero-paraguai.webp) center/cover;opacity:.35}
+.left>*{position:relative}.left img{height:44px;width:auto;align-self:flex-start}
+.kick{margin-top:70px;font-size:12px;letter-spacing:.2em;font-weight:800;color:#8b93a7}
+h1{font-size:56px;line-height:1;margin:18px 0;font-weight:800;letter-spacing:-.03em}h1 em{color:#254bff;display:block}
+.left p{color:#aab1c2;font-size:16px;line-height:1.6;max-width:380px}
+.right{padding:0 0 60px}.top{display:flex;justify-content:space-between;padding:20px 64px;border-bottom:1px solid #eee;font-size:14px}
+.top a{color:#6b6f78;text-decoration:none}.top span{color:#9aa0ad}
+.box{max-width:464px;margin:32px 64px}
+.sum{background:#f8f9fb;border:1px solid #dedfe4;border-radius:20px;padding:20px 22px}
+.sum small{font-size:11px;letter-spacing:.15em;color:#6b6f78;font-weight:800}
+.sum div{display:flex;align-items:center;gap:14px;margin-top:12px}.ic{width:48px;height:48px;border-radius:12px;background:#e8edff;display:grid;place-items:center;font-size:24px}
+.sum b{font-size:20px}.sum .pr{margin-left:auto;text-align:right;font-size:22px;font-weight:800}.sum .pr s{display:block;font-size:12px;font-weight:400;color:#6b6f78}
+.steps{display:flex;align-items:center;margin:28px 0;font-size:11px;color:#6b6f78}.st{display:grid;justify-items:center;gap:6px}
+.st i{width:28px;height:28px;border-radius:50%;background:#e5e8ee;display:grid;place-items:center;font-style:normal;font-weight:800;font-size:13px;color:#6b6f78}
+.st.on i{background:#254bff;color:#fff}.st.on{color:#254bff}.ln{width:72px;height:2px;background:#e5e8ee;margin:-16px 10px 0}
+label{display:block;font-weight:800;font-size:14px;margin:18px 0 8px}
+input{width:100%;height:50px;border:1px solid #dedfe4;border-radius:14px;padding:0 16px;font:inherit;font-size:15px;outline:0}input:focus{border-color:#254bff}
+.ph{display:flex;border:1px solid #dedfe4;border-radius:14px;overflow:hidden}.ph span{padding:0 14px;display:grid;place-items:center;font-size:13px;color:#6b6f78;border-right:1px solid #dedfe4;background:#fafbfc}.ph input{border:0;border-radius:0}
+.note{background:#eef2ff;border-radius:14px;padding:14px 16px;font-size:13px;line-height:1.5;margin-top:22px;color:#33405f}
+.btn{width:100%;height:54px;margin-top:22px;border:0;border-radius:14px;background:#254bff;color:#fff;font:inherit;font-weight:800;font-size:16px;cursor:pointer}
+.pay{display:grid;gap:10px}.pay label{display:flex;gap:12px;align-items:center;margin:0;border:1px solid #dedfe4;border-radius:14px;padding:16px;cursor:pointer;font-weight:800}.pay input{width:auto;height:auto}
+.pay label:has(input:checked){border-color:#254bff;background:#f3f6ff}
+#s2,#ok{display:none}.err{color:#d12;font-size:12px;margin-top:6px}
+@media(max-width:900px){.wrap{grid-template-columns:1fr}.left{position:static;height:auto;padding:28px}.kick{margin-top:24px}h1{font-size:38px}.top{padding:16px 24px}.box{margin:24px}}
+</style></head><body><div class="wrap">
+<aside class="left"><img src="/mirror/connectacademy.com.br/portal/assets/logo-white.png" alt="Paraguai Academy">
+<div class="kick">O PRIMEIRO PASSO É SEU.</div><h1>Seu próximo capítulo <em>começa aqui.</em></h1>
+<p>Acesse fornecedores e lojas do Paraguai, com passo a passo para importar e rastrear seus pedidos em tempo real.</p></aside>
+<main class="right"><div class="top"><a href="/#planos">← Voltar</a><span>🔒 Checkout seguro</span></div>
+<div class="box">
+<div class="sum"><small>RESUMO DO PEDIDO</small><div><span class="ic">🌎</span><span><b id="pn">PRO</b><br><small style="letter-spacing:0;font-weight:400">3 meses de acesso</small></span><span class="pr"><span id="pp">R$ 199,90</span><s id="pi"></s></span></div></div>
+<div class="steps"><div class="st on" id="t1"><i>1</i>Seus dados</div><div class="ln"></div><div class="st" id="t2"><i>2</i>Pagamento</div></div>
+<form id="s1"><label>Seu nome completo</label><input id="nm" placeholder="Seu nome" required>
+<label>Seu e-mail</label><input id="em" type="email" placeholder="seu@email.com" required>
+<label>Seu WhatsApp</label><div class="ph"><span>BR +55</span><input id="wa" type="tel" placeholder="(11) 99999-9999" required></div>
+<div class="note">✉️ Após o pagamento, você recebe um <b>e-mail com seus dados de acesso</b>.</div>
+<button class="btn">Continuar →</button></form>
+<form id="s2"><div class="note">Você será levado ao ambiente seguro do <b>Mercado Pago</b> para pagar com Pix, cartão ou boleto.</div><div class="err" id="er"></div><button class="btn" id="go">Pagar com Mercado Pago</button></form>
+
+</div></main></div>
+<script>
+var P={starter:["STARTER",49.9],pro:["PRO",199.9]},k=new URLSearchParams(location.search).get("plano");if(!P[k])k="pro";
+var f=function(v){return "R$ "+v.toFixed(2).replace(".",",")};
+pn.textContent=P[k][0];pp.textContent=f(P[k][1]);pi.textContent="ou 12x de "+f(P[k][1]/12);
+s1.onsubmit=function(e){e.preventDefault();s1.style.display="none";s2.style.display="block";t2.className="st on"};
+s2.onsubmit=function(e){e.preventDefault();go.disabled=true;go.textContent="Aguarde...";er.textContent="";
+fetch("/api/checkout",{method:"POST",body:JSON.stringify({plano:k,nome:nm.value,email:em.value,whatsapp:wa.value})}).then(function(r){return r.json()}).then(function(d){if(d.url)location.href=d.url;else throw d}).catch(function(d){er.textContent=(d&&d.error)||"Erro ao iniciar o pagamento.";go.disabled=false;go.textContent="Pagar com Mercado Pago"})};
+</script></body></html>

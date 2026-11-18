@@ -1,0 +1,20 @@
+VibeCloner — Relatório de Mirror
+==================================
+URL: https://connectacademy.com.br/?utm_source=organic&utm_campaign=&utm_medium=&utm_content=&utm_term=#universo
+Capturado em: 2026-11-13T02:00:25.927Z
+
+Recursos detectados na página: 85
+Assets estáticos tentados: 82
+Baixados para o mirror: 80
+Falharam: 2
+
+FALHAS (URL — tipo — erro):
+---------------------------
+[link] HTTP 404
+    https://iframe.mediadelivery.net/
+[link] HTTP 404
+    https://connect1-cdn.b-cdn.net/
+
+Obs.: recursos que falharam mantêm a URL original no HTML (carregam
+da web quando o clone é servido com internet). Envie este arquivo
+para diagnóstico se algo estiver faltando.
