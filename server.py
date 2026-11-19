@@ -7,7 +7,7 @@ if os.path.exists(".env"):
         if "=" in l and not l.startswith("#"):
             k, v = l.strip().split("=", 1); os.environ.setdefault(k, v.strip('"\''))
 
-PLANOS = {"starter": ("Paraguai Academy - Starter (3 meses de acesso)", 49.90), "pro": ("Paraguai Academy - Pro (3 meses de acesso)", 199.90)}  # preço sempre definido aqui, nunca pelo navegador
+PLANOS = {"starter": ("Paraguai Academy - Starter (3 meses de acesso)", 49.90), "pro": ("Paraguai Academy - Pro (3 meses de acesso)", 299.90)}  # preço sempre definido aqui, nunca pelo navegador
 PORT = int(os.environ.get("PORT", 8000))
 
 class H(SimpleHTTPRequestHandler):

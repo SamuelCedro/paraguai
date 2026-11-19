@@ -1,5 +1,5 @@
 // Vercel Function: cria a cobrança no Mercado Pago (Checkout Pro). Token em MP_ACCESS_TOKEN (variável de ambiente).
-const PLANOS = { starter: ["Paraguai Academy - Starter (3 meses de acesso)", 49.9], pro: ["Paraguai Academy - Pro (3 meses de acesso)", 199.9] }; // preço só aqui, nunca vindo do navegador
+const PLANOS = { starter: ["Paraguai Academy - Starter (3 meses de acesso)", 49.9], pro: ["Paraguai Academy - Pro (3 meses de acesso)", 299.9] }; // preço só aqui, nunca vindo do navegador
 
 module.exports = async (req, res) => {
   if (req.method !== "POST") return res.status(405).json({ error: "método inválido" });

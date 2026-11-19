@@ -37,7 +37,7 @@ input{width:100%;height:50px;border:1px solid #dedfe4;border-radius:14px;padding
 <p>Acesse fornecedores e lojas do Paraguai, com passo a passo para importar e rastrear seus pedidos em tempo real.</p></aside>
 <main class="right"><div class="top"><a href="/#planos">← Voltar</a><span>🔒 Checkout seguro</span></div>
 <div class="box">
-<div class="sum"><small>RESUMO DO PEDIDO</small><div><span class="ic">🌎</span><span><b id="pn">PRO</b><br><small style="letter-spacing:0;font-weight:400">3 meses de acesso</small></span><span class="pr"><span id="pp">R$ 199,90</span><s id="pi"></s></span></div></div>
+<div class="sum"><small>RESUMO DO PEDIDO</small><div><span class="ic">🌎</span><span><b id="pn">PRO</b><br><small style="letter-spacing:0;font-weight:400">3 meses de acesso</small></span><span class="pr"><span id="pp">R$ 299,90</span><s id="pi"></s></span></div></div>
 <div class="steps"><div class="st on" id="t1"><i>1</i>Seus dados</div><div class="ln"></div><div class="st" id="t2"><i>2</i>Pagamento</div></div>
 <form id="s1"><label>Seu nome completo</label><input id="nm" placeholder="Seu nome" required>
 <label>Seu e-mail</label><input id="em" type="email" placeholder="seu@email.com" required>
@@ -48,10 +48,10 @@ input{width:100%;height:50px;border:1px solid #dedfe4;border-radius:14px;padding
 
 </div></main></div>
 <script>
-var P={starter:["STARTER",49.9],pro:["PRO",199.9]},k=new URLSearchParams(location.search).get("plano");if(!P[k])k="pro";
+var P={starter:["STARTER",49.9],pro:["PRO",299.9]},k=new URLSearchParams(location.search).get("plano");if(!P[k])k="pro";
 var f=function(v){return "R$ "+v.toFixed(2).replace(".",",")};
 pn.textContent=P[k][0];pp.textContent=f(P[k][1]);pi.textContent="ou 12x de "+f(P[k][1]/12);
 s1.onsubmit=function(e){e.preventDefault();s1.style.display="none";s2.style.display="block";t2.className="st on"};
-s2.onsubmit=function(e){e.preventDefault();go.disabled=true;go.textContent="Aguarde...";er.textContent="";
-fetch("/api/checkout",{method:"POST",body:JSON.stringify({plano:k,nome:nm.value,email:em.value,whatsapp:wa.value})}).then(function(r){return r.json()}).then(function(d){if(d.url)location.href=d.url;else throw d}).catch(function(d){er.textContent=(d&&d.error)||"Erro ao iniciar o pagamento.";go.disabled=false;go.textContent="Pagar com Mercado Pago"})};
+var L={starter:"https://mpago.la/1HG7E5P",pro:"https://mpago.la/2C3Rx2y"};
+s2.onsubmit=function(e){e.preventDefault();location.href=L[k]};
 </script></body></html>
