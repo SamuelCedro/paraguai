@@ -11,6 +11,7 @@ PLANOS = {"starter": ("Paraguai Academy - Starter (3 meses de acesso)", 49.90), 
 PORT = int(os.environ.get("PORT", 8000))
 
 class H(SimpleHTTPRequestHandler):
+    extensions_map = {**SimpleHTTPRequestHandler.extensions_map, ".q14uttv9": "text/html"}  # embed do vídeo salvo com extensão estranha: sem isso o navegador baixa o arquivo
     def do_POST(self):
         if self.path != "/api/checkout": return self.reply(404, {"error": "not found"})
         token = os.environ.get("MP_ACCESS_TOKEN")
